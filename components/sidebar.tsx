@@ -5,9 +5,7 @@ import { AppSidebar } from "./app-sidebar";
 import { RightSidebar } from "./right-sidebar";
 import { Header } from "./header";
 
-type Props = {};
-
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   return (
     <SidebarProvider>
       <AppSidebar side="left" />

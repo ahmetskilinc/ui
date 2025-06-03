@@ -1,8 +1,6 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarRail } from "@/registry/new-york/ui/dual-sidebar";
 import React from "react";
 
-type Props = {};
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>

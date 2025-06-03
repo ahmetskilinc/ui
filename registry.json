@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Dual Sidebar",
       "description": "A dual sidebar component",
-      "registryDependencies": ["@radix-ui/react-slot", "class-variance-authority", "lucide-react", "shadcn"],
+      "registryDependencies": ["button", "input", "separator", "sheet", "skeleton", "tooltip", "use-mobile"],
       "files": [
         {
           "path": "registry/new-york/ui/dual-sidebar.tsx",

@@ -351,7 +351,11 @@ function SidebarTrigger({ className, onClick, side, ...props }: React.ComponentP
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      <PanelLeftIcon
+        className={cn({
+          "rotate-180": targetSide === "right",
+        })}
+      />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );

@@ -24,7 +24,7 @@ export const Index: Record<string, any> = {
     files: [
       {
         path: "registry/new-york/ui/dual-sidebar.tsx",
-        type: "registry:component",
+        type: "registry:block",
         target: "",
       },
     ],

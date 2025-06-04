@@ -198,14 +198,12 @@ function BlockViewerToolbar() {
           size="sm"
           onClick={() => {
             copyToClipboard(
-              `bunx --bun shadcn@latest add {getStudioAhmetUrl(item.name)}`,
+              `bunx --bun shadcn@latest add ${getStudioAhmetUrl(item.name)}`,
             );
           }}
         >
           {isCopied ? <Check /> : <Terminal />}
-          <span>
-            bunx --bun shadcn@latest add {getStudioAhmetUrl(item.name)}
-          </span>
+          <span>bunx shadcn add {getStudioAhmetUrl(item.name)}</span>
         </Button>
         <Separator
           orientation="vertical"

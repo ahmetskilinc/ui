@@ -8,47 +8,58 @@
       "type": "registry:component",
       "title": "Dual Sidebar",
       "description": "A dual sidebar component",
-      "registryDependencies": ["button", "input", "separator", "sheet", "skeleton", "tooltip", "use-mobile", "collapsible", "avatar", "dropdown-menu"],
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip",
+        "use-mobile",
+        "collapsible",
+        "avatar",
+        "dropdown-menu"
+      ],
       "files": [
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/sidebar.tsx"
+          "target": "components/dual-sidebar/sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/app-sidebar.tsx"
+          "target": "components/dual-sidebar/app-sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/right-sidebar.tsx"
+          "target": "components/dual-sidebar/right-sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/header.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/header.tsx"
+          "target": "components/dual-sidebar/header.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/nav-main.tsx"
+          "target": "components/dual-sidebar/nav-main.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/nav-projects.tsx"
+          "target": "components/dual-sidebar/nav-projects.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/nav-user.tsx"
+          "target": "components/dual-sidebar/nav-user.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
           "type": "registry:component",
-          "target": "components/blocks/dual-sidebar/team-switcher.tsx"
+          "target": "components/dual-sidebar/team-switcher.tsx"
         }
       ]
     }

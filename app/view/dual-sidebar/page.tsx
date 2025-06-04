@@ -1,11 +1,3 @@
-import Sidebar from "@/components/blocks/dual-sidebar/sidebar";
-
-const Page = () => {
-  return (
-    <div>
-      <Sidebar />
-    </div>
-  );
-};
+import Page from "@/registry/blocks/dual-sidebar/page";
 
 export default Page;

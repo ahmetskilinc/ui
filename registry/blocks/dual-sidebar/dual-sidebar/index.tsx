@@ -1,4 +1,4 @@
-import { SidebarInset, SidebarProvider } from "@/registry/ui/dual-sidebar";
+import { SidebarInset, SidebarProvider } from "@/registry/ui/sidebar";
 import { AppSidebar } from "./app-sidebar";
 import { Header } from "./header";
 import { RightSidebar } from "./right-sidebar";

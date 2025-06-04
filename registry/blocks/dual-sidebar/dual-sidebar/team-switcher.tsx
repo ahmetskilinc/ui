@@ -16,7 +16,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/registry/ui/dual-sidebar";
+} from "@/registry/ui/sidebar";
 
 export function TeamSwitcher({
   teams,

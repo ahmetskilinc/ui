@@ -28,7 +28,7 @@ import { ImperativePanelHandle } from "react-resizable-panels";
 import { registryItemFileSchema, registryItemSchema } from "shadcn/registry";
 import { z } from "zod";
 import { getIconForLanguageExtension } from "@/components/icons";
-// import { OpenInV0Button } from "@/components/open-in-v0-button";
+import { OpenInV0Button } from "@/components/open-in-v0-button";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -205,11 +205,11 @@ function BlockViewerToolbar() {
           {isCopied ? <Check /> : <Terminal />}
           <span>npx shadcn add {getStudioAhmetUrl(item.name)}</span>
         </Button>
-        {/* <Separator
+        <Separator
           orientation="vertical"
           className="mx-1 hidden !h-4 xl:flex"
         />
-        <OpenInV0Button name={item.name} /> */}
+        <OpenInV0Button name={item.name} />
       </div>
     </div>
   );

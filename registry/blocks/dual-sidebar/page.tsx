@@ -1,4 +1,4 @@
-import Sidebar from "@/registry/blocks/dual-sidebar/dual-sidebar/sidebar";
+import Sidebar from "@/registry/blocks/dual-sidebar/dual-sidebar";
 
 const Page = () => {
   return (

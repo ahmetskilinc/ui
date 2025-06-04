@@ -37,44 +37,49 @@ export const Index: Record<string, any> = {
         target: "app/page.tsx",
       },
       {
-        path: "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
+        path: "registry/ui/sidebar.tsx",
         type: "registry:component",
-        target: "components/ui/dual-sidebar.tsx",
+        target: "components/ui/sidebar.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/index.tsx",
+        type: "registry:component",
+        target: "components/dual-sidebar/index.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
         type: "registry:component",
-        target: "components/app-sidebar.tsx",
+        target: "components/dual-sidebar/app-sidebar.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
         type: "registry:component",
-        target: "components/right-sidebar.tsx",
+        target: "components/dual-sidebar/right-sidebar.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/header.tsx",
         type: "registry:component",
-        target: "components/header.tsx",
+        target: "components/dual-sidebar/header.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
         type: "registry:component",
-        target: "components/nav-main.tsx",
+        target: "components/dual-sidebar/nav-main.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
         type: "registry:component",
-        target: "components/nav-projects.tsx",
+        target: "components/dual-sidebar/nav-projects.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
         type: "registry:component",
-        target: "components/nav-user.tsx",
+        target: "components/dual-sidebar/nav-user.tsx",
       },
       {
         path: "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
         type: "registry:component",
-        target: "components/team-switcher.tsx",
+        target: "components/dual-sidebar/team-switcher.tsx",
       },
     ],
     component: lazy(async () => {

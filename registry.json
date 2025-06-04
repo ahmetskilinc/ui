@@ -22,6 +22,11 @@
       ],
       "files": [
         {
+          "path": "registry/blocks/dual-sidebar/page.tsx",
+          "type": "registry:component",
+          "target": "app/page.tsx"
+        },
+        {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
           "type": "registry:component",
           "target": "components/dual-sidebar/sidebar.tsx"

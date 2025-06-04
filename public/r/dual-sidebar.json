@@ -18,6 +18,12 @@
   ],
   "files": [
     {
+      "path": "registry/blocks/dual-sidebar/page.tsx",
+      "content": "import React from \"react\";\nimport Sidebar from \"@/registry/blocks/dual-sidebar/dual-sidebar/sidebar\";\n\nconst Page = () => {\n  return (\n    <div>\n      <Sidebar />\n    </div>\n  );\n};\n\nexport default Page;\n",
+      "type": "registry:component",
+      "target": "app/page.tsx"
+    },
+    {
       "path": "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
       "content": "import { SidebarInset, SidebarProvider } from \"@/registry/ui/dual-sidebar\";\nimport { AppSidebar } from \"./app-sidebar\";\nimport { Header } from \"./header\";\nimport { RightSidebar } from \"./right-sidebar\";\n\nconst Sidebar = () => {\n  return (\n    <SidebarProvider>\n      <AppSidebar side=\"left\" />\n      <SidebarInset className=\"h-full overflow-hidden\">\n        <Header />\n        <div className=\"p-4\">Hello</div>\n      </SidebarInset>\n      <RightSidebar side=\"right\" />\n    </SidebarProvider>\n  );\n};\n\nexport default Sidebar;\n",
       "type": "registry:component",

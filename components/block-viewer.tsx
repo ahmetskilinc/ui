@@ -19,7 +19,7 @@ import { ImperativePanelHandle } from "react-resizable-panels";
 import { registryItemFileSchema, registryItemSchema } from "shadcn/registry";
 import { z } from "zod";
 import { getIconForLanguageExtension } from "@/components/icons";
-import { OpenInV0Button } from "@/components/open-in-v0-button";
+// import { OpenInV0Button } from "@/components/open-in-v0-button";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,

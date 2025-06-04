@@ -29,42 +29,42 @@
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/sidebar.tsx"
+          "target": "components/sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/app-sidebar.tsx"
+          "target": "components/app-sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/right-sidebar.tsx"
+          "target": "components/right-sidebar.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/header.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/header.tsx"
+          "target": "components/header.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/nav-main.tsx"
+          "target": "components/nav-main.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/nav-projects.tsx"
+          "target": "components/nav-projects.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/nav-user.tsx"
+          "target": "components/nav-user.tsx"
         },
         {
           "path": "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
           "type": "registry:component",
-          "target": "components/dual-sidebar/team-switcher.tsx"
+          "target": "components/team-switcher.tsx"
         },
         {
           "path": "registry/ui/dual-sidebar.tsx",

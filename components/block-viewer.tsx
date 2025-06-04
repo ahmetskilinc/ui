@@ -1,6 +1,15 @@
 "use client";
 
-import * as React from "react";
+import {
+  createContext,
+  CSSProperties,
+  ReactNode,
+  RefObject,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -55,7 +64,7 @@ type BlockViewerContext = {
   setView: (view: "code" | "preview") => void;
   activeFile: string | null;
   setActiveFile: (file: string) => void;
-  resizablePanelRef: React.RefObject<ImperativePanelHandle | null> | null;
+  resizablePanelRef: RefObject<ImperativePanelHandle | null> | null;
   tree: ReturnType<typeof createFileTreeForRegistryItemFiles> | null;
   highlightedFiles:
     | (z.infer<typeof registryItemFileSchema> & {
@@ -64,10 +73,10 @@ type BlockViewerContext = {
     | null;
 };
 
-const BlockViewerContext = React.createContext<BlockViewerContext | null>(null);
+const BlockViewerContext = createContext<BlockViewerContext | null>(null);
 
 function useBlockViewer() {
-  const context = React.useContext(BlockViewerContext);
+  const context = useContext(BlockViewerContext);
   if (!context) {
     throw new Error(
       "useBlockViewer must be used within a BlockViewerProvider.",
@@ -82,13 +91,13 @@ function BlockViewerProvider({
   highlightedFiles,
   children,
 }: Pick<BlockViewerContext, "item" | "tree" | "highlightedFiles"> & {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const [view, setView] = React.useState<BlockViewerContext["view"]>("preview");
-  const [activeFile, setActiveFile] = React.useState<
+  const [view, setView] = useState<BlockViewerContext["view"]>("preview");
+  const [activeFile, setActiveFile] = useState<
     BlockViewerContext["activeFile"]
   >(highlightedFiles?.[0].target ?? null);
-  const resizablePanelRef = React.useRef<ImperativePanelHandle>(null);
+  const resizablePanelRef = useRef<ImperativePanelHandle>(null);
 
   return (
     <BlockViewerContext.Provider
@@ -110,7 +119,7 @@ function BlockViewerProvider({
         style={
           {
             "--height": item.meta?.iframeHeight ?? "930px",
-          } as React.CSSProperties
+          } as CSSProperties
         }
       >
         {children}
@@ -252,7 +261,7 @@ function BlockViewerView() {
 function BlockViewerCode() {
   const { activeFile, highlightedFiles } = useBlockViewer();
 
-  const file = React.useMemo(() => {
+  const file = useMemo(() => {
     return highlightedFiles?.find((file) => file.target === activeFile);
   }, [highlightedFiles, activeFile]);
 
@@ -332,7 +341,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
           style={
             {
               "--index": `${index * (index === 2 ? 1.2 : 1.3)}rem`,
-            } as React.CSSProperties
+            } as CSSProperties
           }
         >
           <ChevronRight className="invisible" />
@@ -355,7 +364,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
             style={
               {
                 "--index": `${index * (index === 1 ? 1 : 1.2)}rem`,
-              } as React.CSSProperties
+              } as CSSProperties
             }
           >
             <ChevronRight className="transition-transform" />
@@ -379,7 +388,7 @@ function BlockCopyCodeButton() {
   const { activeFile, item } = useBlockViewer();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
-  const file = React.useMemo(() => {
+  const file = useMemo(() => {
     return item.files?.find((file) => file.target === activeFile);
   }, [activeFile, item.files]);
 

@@ -1,6 +1,7 @@
+import { HTMLAttributes } from "react";
 import { FileIcon } from "lucide-react";
 
-type IconProps = React.HTMLAttributes<SVGElement>;
+type IconProps = HTMLAttributes<SVGElement>;
 
 export const Icons = {
   logo: (props: IconProps) => (

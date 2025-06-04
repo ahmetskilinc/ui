@@ -1,4 +1,4 @@
-import * as React from "react";
+import { cache } from "react";
 import { registryItemFileSchema } from "shadcn/registry";
 import { z } from "zod";
 import { BlockViewer } from "@/components/block-viewer";
@@ -25,11 +25,11 @@ export async function BlockDisplay({ name }: { name: string }) {
   );
 }
 
-const getCachedRegistryItem = React.cache(async (name: string) => {
+const getCachedRegistryItem = cache(async (name: string) => {
   return await getRegistryItem(name);
 });
 
-const getCachedFileTree = React.cache(
+const getCachedFileTree = cache(
   async (files: Array<{ path: string; target?: string }>) => {
     if (!files) {
       return null;
@@ -39,7 +39,7 @@ const getCachedFileTree = React.cache(
   },
 );
 
-const getCachedHighlightedFiles = React.cache(
+const getCachedHighlightedFiles = cache(
   async (files: z.infer<typeof registryItemFileSchema>[]) => {
     return await Promise.all(
       files.map(async (file) => ({

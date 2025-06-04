@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { ComponentProps } from "react";
 import {
   AudioWaveform,
   BookOpen,
@@ -155,7 +155,7 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

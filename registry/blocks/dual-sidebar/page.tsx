@@ -1,4 +1,3 @@
-import React from "react";
 import Sidebar from "@/registry/blocks/dual-sidebar/dual-sidebar/sidebar";
 
 const Page = () => {

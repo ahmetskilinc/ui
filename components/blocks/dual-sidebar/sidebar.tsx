@@ -1,4 +1,3 @@
-import React from "react";
 import { SidebarInset, SidebarProvider } from "@/registry/ui/dual-sidebar";
 import { AppSidebar } from "./app-sidebar";
 import { Header } from "./header";

@@ -1,10 +1,11 @@
+import { ComponentProps } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function OpenInV0Button({
   name,
   className,
-}: { name: string } & React.ComponentProps<typeof Button>) {
+}: { name: string } & ComponentProps<typeof Button>) {
   return (
     <Button
       aria-label="Open in v0"

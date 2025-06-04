@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 import { ThemeProvider } from "./theme-provider";
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const Providers = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeProvider
       attribute="class"

@@ -196,11 +196,11 @@ function BlockViewerToolbar() {
           {isCopied ? <Check /> : <Terminal />}
           <span>npx shadcn add {getStudioAhmetUrl(item.name)}</span>
         </Button>
-        <Separator
+        {/* <Separator
           orientation="vertical"
           className="mx-1 hidden !h-4 xl:flex"
         />
-        <OpenInV0Button name={item.name} />
+        <OpenInV0Button name={item.name} /> */}
       </div>
     </div>
   );

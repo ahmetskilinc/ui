@@ -1,6 +1,6 @@
-import { AppHeader } from "@/components/app-header";
-import { Analytics } from "@vercel/analytics/next";
 import { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
+import { AppHeader } from "@/components/app-header";
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
   return (

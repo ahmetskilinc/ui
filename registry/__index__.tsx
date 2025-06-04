@@ -20,17 +20,69 @@ export const Index: Record<string, any> = {
     name: "dual-sidebar",
     description: "A dual sidebar component",
     type: "registry:component",
-    registryDependencies: ["button", "input", "separator", "sheet", "skeleton", "tooltip", "use-mobile"],
+    registryDependencies: [
+      "button",
+      "input",
+      "separator",
+      "sheet",
+      "skeleton",
+      "tooltip",
+      "use-mobile",
+    ],
     files: [
       {
-        path: "registry/new-york/ui/dual-sidebar.tsx",
-        type: "registry:block",
-        target: "",
+        path: "registry/blocks/dual-sidebar/page.tsx",
+        type: "registry:component",
+        target: "app/page.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/sidebar.tsx",
+        type: "registry:component",
+        target: "components/ui/dual-sidebar.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
+        type: "registry:component",
+        target: "components/ui/app-sidebar.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
+        type: "registry:component",
+        target: "components/ui/right-sidebar.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/header.tsx",
+        type: "registry:component",
+        target: "components/ui/header.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
+        type: "registry:component",
+        target: "components/ui/nav-main.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
+        type: "registry:component",
+        target: "components/ui/nav-projects.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
+        type: "registry:component",
+        target: "components/ui/nav-user.tsx",
+      },
+      {
+        path: "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
+        type: "registry:component",
+        target: "components/ui/team-switcher.tsx",
       },
     ],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/new-york/ui/dual-sidebar.tsx");
-      const exportName = Object.keys(mod).find((key) => typeof mod[key] === "function" || typeof mod[key] === "object") || item.name;
+      const mod = await import("@/registry/ui/dual-sidebar");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
       return { default: mod.default || mod[exportName] };
     }),
     categories: undefined,

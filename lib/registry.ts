@@ -4,7 +4,6 @@ import path from "path";
 import { registryItemFileSchema, registryItemSchema } from "shadcn/registry";
 import { Project, ScriptKind } from "ts-morph";
 import { z } from "zod";
-
 import { Index } from "@/registry/__index__";
 
 export function getRegistryComponent(name: string) {
@@ -20,7 +19,9 @@ export async function getRegistryItem(name: string) {
 
   // Convert all file paths to object.
   // TODO: remove when we migrate to new registry.
-  item.files = item.files.map((file: unknown) => (typeof file === "string" ? { path: file } : file));
+  item.files = item.files.map((file: unknown) =>
+    typeof file === "string" ? { path: file } : file,
+  );
 
   // Fail early before doing expensive file operations.
   const result = registryItemSchema.safeParse(item);
@@ -93,7 +94,11 @@ function getFileTarget(file: z.infer<typeof registryItemFileSchema>) {
 
   if (!target || target === "") {
     const fileName = file.path.split("/").pop();
-    if (file.type === "registry:block" || file.type === "registry:component" || file.type === "registry:example") {
+    if (
+      file.type === "registry:block" ||
+      file.type === "registry:component" ||
+      file.type === "registry:example"
+    ) {
       target = `components/${fileName}`;
     }
 
@@ -139,7 +144,12 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>["files"]) {
 export function fixImport(content: string) {
   const regex = /@\/(.+?)\/((?:.*?\/)?(?:components|ui|hooks|lib))\/([\w-]+)/g;
 
-  const replacement = (match: string, path: string, type: string, component: string) => {
+  const replacement = (
+    match: string,
+    path: string,
+    type: string,
+    component: string,
+  ) => {
     if (type.endsWith("components")) {
       return `@/components/${component}`;
     } else if (type.endsWith("ui")) {
@@ -162,7 +172,9 @@ export type FileTree = {
   children?: FileTree[];
 };
 
-export function createFileTreeForRegistryItemFiles(files: Array<{ path: string; target?: string }>) {
+export function createFileTreeForRegistryItemFiles(
+  files: Array<{ path: string; target?: string }>,
+) {
   const root: FileTree[] = [];
 
   for (const file of files) {
@@ -184,7 +196,9 @@ export function createFileTreeForRegistryItemFiles(files: Array<{ path: string; 
           currentLevel = existingNode.children!;
         }
       } else {
-        const newNode: FileTree = isFile ? { name: part, path } : { name: part, children: [] };
+        const newNode: FileTree = isFile
+          ? { name: part, path }
+          : { name: part, children: [] };
 
         currentLevel.push(newNode);
 

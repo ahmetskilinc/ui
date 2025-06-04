@@ -19,7 +19,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/registry/components/sidebar";
+} from "@/registry/default/components/sidebar";
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavUser } from "./nav-user";

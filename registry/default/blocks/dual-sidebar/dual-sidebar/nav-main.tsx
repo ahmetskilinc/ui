@@ -15,7 +15,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/registry/components/sidebar";
+} from "@/registry/default/components/sidebar";
 
 export function NavMain({
   items,

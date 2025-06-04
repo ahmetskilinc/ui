@@ -3,7 +3,7 @@ import {
   Sidebar,
   SidebarContent,
   SidebarRail,
-} from "@/registry/components/sidebar";
+} from "@/registry/default/components/sidebar";
 
 export function RightSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
   return (

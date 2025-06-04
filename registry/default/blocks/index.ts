@@ -20,52 +20,52 @@ export const blocks: Registry["items"] = [
     ],
     files: [
       {
-        path: "blocks/dual-sidebar/page.tsx",
+        path: "default/blocks/dual-sidebar/page.tsx",
         type: "registry:page",
         target: "app/page.tsx",
       },
       {
-        path: "components/sidebar.tsx",
+        path: "default/components/sidebar.tsx",
         type: "registry:component",
         target: "components/ui/sidebar.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/index.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/index.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/index.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/app-sidebar.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/right-sidebar.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/header.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/header.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/header.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/nav-main.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/nav-projects.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/nav-user.tsx",
       },
       {
-        path: "blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
+        path: "default/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
         type: "registry:component",
         target: "components/dual-sidebar/team-switcher.tsx",
       },

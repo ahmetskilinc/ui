@@ -22,48 +22,48 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: ["button","input","separator","sheet","skeleton","tooltip","use-mobile","collapsible","avatar","dropdown-menu"],
     files: [{
-      path: "registry/blocks/dual-sidebar/page.tsx",
+      path: "registry/default/blocks/dual-sidebar/page.tsx",
       type: "registry:page",
       target: "app/page.tsx"
     },{
-      path: "registry/components/sidebar.tsx",
+      path: "registry/default/components/sidebar.tsx",
       type: "registry:component",
       target: "components/ui/sidebar.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/index.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/index.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/index.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/app-sidebar.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/right-sidebar.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/header.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/header.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/header.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/nav-main.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/nav-projects.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/nav-user.tsx"
     },{
-      path: "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
+      path: "registry/default/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
       type: "registry:component",
       target: "components/dual-sidebar/team-switcher.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/blocks/dual-sidebar/page.tsx")
+      const mod = await import("@/registry/default/blocks/dual-sidebar/page.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
@@ -76,12 +76,12 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     registryDependencies: ["button","separator","sheet","tooltip","input","use-mobile","skeleton"],
     files: [{
-      path: "registry/components/sidebar.tsx",
+      path: "registry/default/components/sidebar.tsx",
       type: "registry:ui",
       target: "components/ui/sidebar.tsx"
     }],
     component: React.lazy(async () => {
-      const mod = await import("@/registry/components/sidebar.tsx")
+      const mod = await import("@/registry/default/components/sidebar.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

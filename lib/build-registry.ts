@@ -115,35 +115,6 @@ async function buildRegistry() {
   });
 }
 
-async function syncRegistry() {
-  // Store the current registry content
-  const registryDir = path.join(process.cwd(), "registry");
-  const registryIndexPath = path.join(registryDir, "__index__.tsx");
-  let registryContent = null;
-
-  try {
-    registryContent = await fs.readFile(registryIndexPath, "utf8");
-  } catch {
-    // File might not exist yet, that's ok
-  }
-
-  // 1. Call pnpm registry:build for www.
-  await exec("pnpm --filter=www registry:build");
-
-  // 2. Copy the www/public/r directory to v4/public/r.
-  rimraf.sync(path.join(process.cwd(), "public/r"));
-  await fs.cp(
-    path.resolve(process.cwd(), "../www/public/r"),
-    path.resolve(process.cwd(), "public/r"),
-    { recursive: true },
-  );
-
-  // 3. Restore the registry content if we had it
-  if (registryContent) {
-    await fs.writeFile(registryIndexPath, registryContent, "utf8");
-  }
-}
-
 async function main() {
   try {
     console.log("🗂️ Building registry/__index__.tsx...");
@@ -154,9 +125,6 @@ async function main() {
 
     console.log("🏗️ Building registry...");
     await buildRegistry();
-
-    console.log("🔄 Syncing registry...");
-    await syncRegistry();
   } catch (error) {
     console.error(error);
     process.exit(1);

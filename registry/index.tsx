@@ -1,7 +1,7 @@
 import { registryItemSchema, type Registry } from "shadcn/registry";
 import { z } from "zod";
-import { blocks } from "@/registry/blocks";
-import { components } from "@/registry/components";
+import { blocks } from "@/registry/default/blocks";
+import { components } from "@/registry/default/components";
 
 export const registry = {
   name: "ahmetskilinc/ui",

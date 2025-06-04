@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { SidebarTrigger } from "@/registry/components/sidebar";
+import { SidebarTrigger } from "@/registry/default/components/sidebar";
 
 export function Header() {
   return (

@@ -1,3 +1,3 @@
-import Page from "@/registry/blocks/dual-sidebar/page";
+import Page from "@/registry/default/blocks/dual-sidebar/page";
 
 export default Page;

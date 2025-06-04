@@ -7,7 +7,7 @@
       "name": "dual-sidebar",
       "type": "registry:block",
       "title": "Dual Sidebar",
-      "description": "A dual sidebar component",
+      "description": "A dual sidebar block",
       "registryDependencies": [
         "button",
         "input",

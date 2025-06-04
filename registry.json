@@ -5,7 +5,7 @@
   "items": [
     {
       "name": "dual-sidebar",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Dual Sidebar",
       "description": "A dual sidebar component",
       "registryDependencies": [
@@ -65,6 +65,11 @@
           "path": "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
           "type": "registry:component",
           "target": "components/dual-sidebar/team-switcher.tsx"
+        },
+        {
+          "path": "registry/ui/dual-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/ui/dual-sidebar.tsx"
         }
       ]
     }

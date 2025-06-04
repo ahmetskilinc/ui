@@ -3,24 +3,24 @@ import { type Registry } from "shadcn/registry";
 export const components: Registry["items"] = [
   {
     name: "sidebar",
-    type: "registry:component",
-    title: "Sidebar",
-    description: "A sidebar component",
+    description: "",
+    type: "registry:ui",
     registryDependencies: [
       "button",
-      "input",
       "separator",
       "sheet",
-      "skeleton",
       "tooltip",
+      "input",
       "use-mobile",
+      "skeleton",
     ],
     files: [
       {
         path: "components/sidebar.tsx",
-        type: "registry:component",
+        type: "registry:ui",
         target: "components/ui/sidebar.tsx",
       },
     ],
+    categories: undefined,
   },
 ];

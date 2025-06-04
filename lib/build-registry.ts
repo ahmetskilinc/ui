@@ -94,7 +94,7 @@ async function buildRegistryJsonFile() {
 async function buildRegistry() {
   return new Promise((resolve, reject) => {
     const process = exec(
-      `pnpm dlx shadcn build registry.json --output ../public/r`,
+      `bunx shadcn build registry.json --output ../public/r/`,
       (error, stdout, stderr) => {
         if (error) {
           console.error("Command output:", stdout);

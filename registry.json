@@ -90,22 +90,21 @@
     },
     {
       "name": "sidebar",
-      "type": "registry:component",
-      "title": "Sidebar",
-      "description": "A sidebar component",
+      "type": "registry:ui",
+      "description": "",
       "registryDependencies": [
         "button",
-        "input",
         "separator",
         "sheet",
-        "skeleton",
         "tooltip",
-        "use-mobile"
+        "input",
+        "use-mobile",
+        "skeleton"
       ],
       "files": [
         {
           "path": "registry/components/sidebar.tsx",
-          "type": "registry:component",
+          "type": "registry:ui",
           "target": "components/ui/sidebar.tsx"
         }
       ]

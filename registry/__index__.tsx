@@ -72,12 +72,12 @@ export const Index: Record<string, any> = {
   },
   "sidebar": {
     name: "sidebar",
-    description: "A sidebar component",
-    type: "registry:component",
-    registryDependencies: ["button","input","separator","sheet","skeleton","tooltip","use-mobile"],
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button","separator","sheet","tooltip","input","use-mobile","skeleton"],
     files: [{
       path: "registry/components/sidebar.tsx",
-      type: "registry:component",
+      type: "registry:ui",
       target: "components/ui/sidebar.tsx"
     }],
     component: React.lazy(async () => {

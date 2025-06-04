@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "registry:build": "shadcn build",
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./lib/build-registry.ts",
     "format": "prettier --write \"**/*.{ts,tsx,css,md}\""
   },
   "dependencies": {
@@ -48,7 +48,9 @@
     "eslint-config-next": "15.3.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^4",
+    "tsx": "^4.19.4",
     "typescript": "^5"
   }
 }

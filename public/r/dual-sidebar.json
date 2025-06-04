@@ -19,7 +19,7 @@
   "files": [
     {
       "path": "registry/blocks/dual-sidebar/page.tsx",
-      "content": "import Sidebar from \"@/components/dual-sidebar\";\n\nconst Page = () => {\n  return (\n    <div>\n      <Sidebar />\n    </div>\n  );\n};\n\nexport default Page;\n",
+      "content": "import Sidebar from \"@/registry/blocks/dual-sidebar/dual-sidebar\";\n\nconst Page = () => {\n  return (\n    <div>\n      <Sidebar />\n    </div>\n  );\n};\n\nexport default Page;\n",
       "type": "registry:page",
       "target": "app/page.tsx"
     },

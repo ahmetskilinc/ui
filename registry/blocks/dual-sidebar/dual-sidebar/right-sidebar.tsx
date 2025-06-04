@@ -1,5 +1,9 @@
 import { ComponentProps } from "react";
-import { Sidebar, SidebarContent, SidebarRail } from "@/registry/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarRail,
+} from "@/registry/components/sidebar";
 
 export function RightSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
   return (

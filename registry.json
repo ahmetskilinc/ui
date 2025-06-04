@@ -1,8 +1,23 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
+  "name": "ahmetskilinc/ui",
   "homepage": "https://ui.ahmet.studio",
   "items": [
+    {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {}
+    },
     {
       "name": "dual-sidebar",
       "type": "registry:block",
@@ -27,7 +42,7 @@
           "target": "app/page.tsx"
         },
         {
-          "path": "registry/ui/sidebar.tsx",
+          "path": "registry/components/sidebar.tsx",
           "type": "registry:component",
           "target": "components/ui/sidebar.tsx"
         },
@@ -70,6 +85,28 @@
           "path": "registry/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
           "type": "registry:component",
           "target": "components/dual-sidebar/team-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A sidebar component",
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip",
+        "use-mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/ui/sidebar.tsx"
         }
       ]
     }

@@ -17,13 +17,10 @@ export async function getRegistryItem(name: string) {
     return null;
   }
 
-  // Convert all file paths to object.
-  // TODO: remove when we migrate to new registry.
   item.files = item.files.map((file: unknown) =>
     typeof file === "string" ? { path: file } : file,
   );
 
-  // Fail early before doing expensive file operations.
   const result = registryItemSchema.safeParse(item);
   if (!result.success) {
     return null;
@@ -69,21 +66,12 @@ async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
     scriptKind: ScriptKind.TSX,
   });
 
-  // Remove meta variables.
-  // removeVariable(sourceFile, "iframeHeight")
-  // removeVariable(sourceFile, "containerClassName")
-  // removeVariable(sourceFile, "description")
-
   let code = sourceFile.getFullText();
 
-  // Some registry items uses default export.
-  // We want to use named export instead.
-  // TODO: do we really need this? - @shadcn.
   if (file.type !== "registry:page") {
     code = code.replaceAll("export default", "export");
   }
 
-  // Fix imports.
   code = fixImport(code);
 
   return code;
@@ -128,7 +116,6 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>["files"]) {
     return [];
   }
 
-  // Resolve all paths relative to the first file's directory.
   const firstFilePath = files[0].path;
   const firstFilePathDir = path.dirname(firstFilePath);
 
@@ -189,10 +176,8 @@ export function createFileTreeForRegistryItemFiles(
 
       if (existingNode) {
         if (isFile) {
-          // Update existing file node with full path
           existingNode.path = path;
         } else {
-          // Move to next level in the tree
           currentLevel = existingNode.children!;
         }
       } else {

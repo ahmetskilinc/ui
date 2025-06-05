@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overscroll-none`}
+        className={`${geistSans.variable} ${geistMono.variable} overscroll-none bg-background`}
       >
-        <Providers>{children} </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ export const AppHeader = () => {
   return (
     <header className="">
       <div className="mx-auto flex max-w-[100rem] flex-row items-center justify-between px-4 py-8">
-        <h1 className="text-xl font-medium tracking-tight md:text-3xl">
+        <h1 className="mr-2 text-lg font-medium tracking-tight md:text-2xl">
           ui.ahmet.studio
         </h1>
         <div className="flex flex-row items-center md:gap-1">

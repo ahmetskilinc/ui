@@ -5,7 +5,7 @@ import {
   // IconArrowRight,
   IconArrowUpRight,
 } from "@tabler/icons-react";
-import { findNeighbour } from "fumadocs-core/server";
+// import { findNeighbour } from "fumadocs-core/server";
 import { DocsTableOfContents } from "@/components/docs-toc";
 import { Badge } from "@/components/ui/badge";
 // import { Button } from "@/components/ui/button";

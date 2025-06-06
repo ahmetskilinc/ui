@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "registry:build": "tsx --tsconfig ./tsconfig.json ./lib/build-registry.ts",
+    "build:registry:external": "shadcn build ./registry.json --output ./public/r/",
     "format": "prettier --write \"**/*.{ts,tsx,css,md}\"",
     "postinstall": "fumadocs-mdx"
   },

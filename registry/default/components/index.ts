@@ -17,7 +17,7 @@ export const components: Registry["items"] = [
     files: [
       {
         path: "default/components/sidebar.tsx",
-        type: "registry:ui",
+        type: "registry:component",
         target: "components/ui/sidebar.tsx",
       },
     ],

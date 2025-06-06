@@ -104,7 +104,7 @@
       "files": [
         {
           "path": "registry/default/components/sidebar.tsx",
-          "type": "registry:ui",
+          "type": "registry:component",
           "target": "components/ui/sidebar.tsx"
         }
       ]

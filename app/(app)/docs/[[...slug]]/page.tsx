@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  IconArrowLeft,
-  IconArrowRight,
+  // IconArrowLeft,
+  // IconArrowRight,
   IconArrowUpRight,
 } from "@tabler/icons-react";
 import { findNeighbour } from "fumadocs-core/server";
 import { DocsTableOfContents } from "@/components/docs-toc";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
 import { mdxComponents } from "@/mdx-components";

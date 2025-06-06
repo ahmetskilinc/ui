@@ -100,7 +100,7 @@ export default async function Page(props: {
                 <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
                   {doc.title}
                 </h1>
-                <div className="flex items-center gap-2 pt-1.5">
+                {/* <div className="flex items-center gap-2 pt-1.5">
                   {neighbours.previous && (
                     <Button
                       variant="secondary"
@@ -127,7 +127,7 @@ export default async function Page(props: {
                       </Link>
                     </Button>
                   )}
-                </div>
+                </div> */}
               </div>
               {doc.description && (
                 <p className="text-[1.05rem] text-balance text-muted-foreground sm:text-base">
@@ -158,7 +158,7 @@ export default async function Page(props: {
             <MDX components={mdxComponents} />
           </div>
         </div>
-        <div className="mx-auto flex h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
+        {/* <div className="mx-auto flex h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
           {neighbours.previous && (
             <Button
               variant="secondary"
@@ -183,7 +183,7 @@ export default async function Page(props: {
               </Link>
             </Button>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="sticky top-[var(--header-height)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div className="h-(--top-spacing) shrink-0" />

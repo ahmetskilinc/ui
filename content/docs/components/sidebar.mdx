@@ -4,4 +4,169 @@ description: A composable, themeable and customizable sidebar component.
 component: true
 ---
 
-There will be some sort of docs here soon?
+<Callout type="info">
+  This sidebar component is based off the original [Sidebar](https://ui.shadcn.com/docs/components/sidebar) component from Shadcn. You can check its usage [here](https://ui.ahmet.studio/blocks#dual-sidebar).
+</Callout>
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsList>
+      <TabsTrigger value="npm">NPM</TabsTrigger>
+      <TabsTrigger value="pnpm">PNPM</TabsTrigger>
+      <TabsTrigger value="bun">Bun</TabsTrigger>
+      <TabsTrigger value="yarn">Yarn</TabsTrigger>
+    </TabsList>
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/sidebar.json
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/sidebar.json
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/sidebar.json
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/sidebar.json
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+The difference is that this sidebar allows you to have 2 sidebars , one on the left and one on the right but, both are independently controllable by providing the `side` prop to the `Sidebar` component.
+
+```typescript showLineNumbers title="Sidebar.tsx"
+const Sidebar = () => {
+  return (
+    <SidebarProvider>
+      <AppSidebar side="left" />
+      <SidebarInset className="h-full overflow-hidden">
+        <div className="p-4">Hello World</div>
+      </SidebarInset>
+      <RightSidebar side="right" />
+    </SidebarProvider>
+  );
+};
+
+export default Sidebar;
+```
+
+## Core Architectural Differences
+
+### Default Sidebar
+- **Single sidebar system** - Manages only one sidebar at a time
+- Simpler context structure with single `SidebarContext`
+- Designed for typical single-sidebar layouts
+
+### Dual Sidebar
+- **Dual sidebar system** - Can manage both left AND right sidebars simultaneously
+- Complex context structure with `SidebarContext` + `SidebarInnerContext`
+- Designed for advanced layouts with sidebars on both sides
+
+## Provider Props Comparison
+
+| Property | Default Sidebar | Dual Sidebar |
+|----------|-----------------|---------------|
+| `defaultOpen` | ✅ | ✅ (legacy support) |
+| `open` | ✅ | ✅ (legacy support) |
+| `onOpenChange` | ✅ | ✅ (legacy support) |
+| `defaultOpenLeft` | ❌ | ✅ |
+| `defaultOpenRight` | ❌ | ✅ |
+| `openLeft` | ❌ | ✅ |
+| `openRight` | ❌ | ✅ |
+| `onOpenChangeLeft` | ❌ | ✅ |
+| `onOpenChangeRight` | ❌ | ✅ |
+
+##  Keyboard Shortcuts
+
+- **Default Sidebar**: `Cmd/Ctrl + B` - Toggle sidebar
+- **Dual Sidebar**:
+  - `Cmd/Ctrl + B` - Toggle left sidebar
+  - `Cmd/Ctrl + N` - Toggle right sidebar
+
+## Available Hooks
+
+### Default Sidebar
+```typescript
+useSidebar() // Returns single sidebar state
+```
+
+### Dual Sidebar
+```typescript
+useSidebar() // Returns current sidebar state (based on context)
+useSidebarWithSide(side: "left" | "right") // Returns specific sidebar state
+```
+
+## Component Differences
+
+Both files export the same set of components, with one key difference:
+
+### SidebarTrigger
+- **Default Sidebar**: Standard trigger for single sidebar
+- **Dual Sidebar**: Enhanced with `side?: "left" | "right"` prop to control which sidebar to toggle
+
+## Cookie Storage
+
+- **Default Sidebar**: Stores state in `sidebar_state` cookie
+- **Dual Sidebar**: Stores states in:
+  - `sidebar_state_left` cookie
+  - `sidebar_state_right` cookie
+
+## State Management
+
+### Default Sidebar Context Value
+```typescript
+{
+  state: "expanded" | "collapsed"
+  open: boolean
+  setOpen: (open: boolean) => void
+  openMobile: boolean
+  setOpenMobile: (open: boolean) => void
+  isMobile: boolean
+  toggleSidebar: () => void
+}
+```
+
+### Dual Sidebar Context Value
+```typescript
+{
+  left: SidebarState   // same as Context Value of Default Sidebar
+  right: SidebarState  // same as Context Value of Default Sidebar
+  isMobile: boolean
+}
+```
+
+## Mobile Behavior
+
+Both implementations handle mobile sidebars identically using sheet overlays, but the Dual Sidebar maintains separate mobile states for left and right sidebars.
+
+## Use Cases
+
+**Choose Default Sidebar when:**
+- You need a standard application with one sidebar
+- Simplicity is preferred
+- You want smaller bundle size and less complexity
+
+**Choose Dual Sidebar when:**
+- You need sidebars on both sides of your layout
+- Building complex dashboards or multi-panel interfaces
+- Need independent control of multiple sidebars
+- Want to future-proof for potential dual-sidebar layouts
+
+## Migration Notes
+
+If migrating from Default Sidebar to Dual Sidebar:
+1. The legacy props (`defaultOpen`, `open`, `onOpenChange`) are supported
+2. The `useSidebar()` hook works similarly but returns the "current" sidebar based on context
+3. You'll need to update keyboard shortcut documentation
+4. Consider if you need to implement right sidebar functionality

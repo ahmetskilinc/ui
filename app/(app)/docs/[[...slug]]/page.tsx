@@ -81,7 +81,7 @@ export default async function Page(props: {
   const doc = page.data;
   // @ts-expect-error - revisit fumadocs types.
   const MDX = doc.body;
-  const neighbours = await findNeighbour(source.pageTree, page.url);
+  // const neighbours = await findNeighbour(source.pageTree, page.url);
 
   // @ts-expect-error - revisit fumadocs types.
   const links = doc.links;

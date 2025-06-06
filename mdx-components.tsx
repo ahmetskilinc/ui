@@ -241,10 +241,10 @@ export const mdxComponents = {
 
     // Default codeblock.
     return (
-      <>
+      <div className="relative">
         {__raw__ && <CopyButton value={__raw__} src={__src__} />}
         <code {...props} />
-      </>
+      </div>
     );
   },
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (

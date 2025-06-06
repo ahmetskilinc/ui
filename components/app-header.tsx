@@ -7,10 +7,8 @@ import { MenuIcon } from "@/components/ui/menu";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
 import { ModeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";

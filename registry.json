@@ -90,7 +90,7 @@
     },
     {
       "name": "sidebar",
-      "type": "registry:ui",
+      "type": "registry:component",
       "description": "",
       "registryDependencies": [
         "button",
@@ -106,6 +106,24 @@
           "path": "registry/default/components/sidebar.tsx",
           "type": "registry:component",
           "target": "components/ui/sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multiselect-combobox",
+      "type": "registry:component",
+      "description": "",
+      "registryDependencies": [
+        "button",
+        "popover",
+        "command",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/multiselect-combobox.tsx",
+          "type": "registry:component",
+          "target": "components/ui/multiselect-combobox.tsx"
         }
       ]
     }

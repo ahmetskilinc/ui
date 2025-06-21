@@ -1,0 +1,266 @@
+---
+title: Multi-Select Combobox
+description: A multi-select combobox component that combines a dropdown with search functionality and displays selected items as badges.
+component: true
+---
+
+<Callout type="info">
+  This component is based off the original [Select](https://ui.shadcn.com/docs/components/select) and [Combobox](https://ui.shadcn.com/docs/components/combobox) components from Shadcn.
+</Callout>
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/multiselect-combobox.json
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/multiselect-combobox.json
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/multiselect-combobox.json
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/multiselect-combobox.json
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MultiSelect, Option } from "@/components/ui/multiselect-combobox";
+
+const options: Option[] = [
+  { label: "React", value: "react" },
+  { label: "Vue", value: "vue" },
+  { label: "Angular", value: "angular" },
+  { label: "Svelte", value: "svelte" },
+];
+
+export default function MultiSelectDemo() {
+  const [selected, setSelected] = React.useState<string[]>([]);
+
+  return (
+    <MultiSelect
+      options={options}
+      selected={selected}
+      onChange={setSelected}
+      placeholder="Select frameworks..."
+    />
+  );
+}
+```
+
+## Features
+
+- **Search functionality** - Filter through options with built-in search
+- **Badge display** - Selected items are displayed as removable badges
+- **Keyboard navigation** - Full keyboard support for accessibility
+- **Customizable styling** - Accepts custom classes via `className` prop
+- **Disabled state** - Can be disabled when needed
+- **Responsive** - Adapts to available space with scrollable selected items
+
+## Props
+
+| Prop          | Type                           | Default             | Description                             |
+| ------------- | ------------------------------ | ------------------- | --------------------------------------- |
+| `options`     | `Option[]`                     | Required            | Array of options to display             |
+| `selected`    | `string[]`                     | Required            | Array of selected option values         |
+| `onChange`    | `(selected: string[]) => void` | Required            | Callback when selection changes         |
+| `placeholder` | `string`                       | `"Select items..."` | Placeholder text when no items selected |
+| `className`   | `string`                       | `undefined`         | Additional CSS classes                  |
+| `disabled`    | `boolean`                      | `false`             | Whether the component is disabled       |
+
+### Option Interface
+
+```typescript
+interface Option {
+  label: string; // Display text
+  value: string; // Unique identifier
+}
+```
+
+## Examples
+
+### Basic Example
+
+```tsx
+import { MultiSelect, Option } from "@/components/ui/multiselect-combobox";
+
+const frameworks: Option[] = [
+  { label: "Next.js", value: "nextjs" },
+  { label: "SvelteKit", value: "sveltekit" },
+  { label: "Nuxt.js", value: "nuxtjs" },
+  { label: "Remix", value: "remix" },
+  { label: "Astro", value: "astro" },
+];
+
+export function BasicExample() {
+  const [selectedFrameworks, setSelectedFrameworks] = React.useState<string[]>(
+    [],
+  );
+
+  return (
+    <div className="w-[300px]">
+      <MultiSelect
+        options={frameworks}
+        selected={selectedFrameworks}
+        onChange={setSelectedFrameworks}
+        placeholder="Select frameworks..."
+      />
+    </div>
+  );
+}
+```
+
+### With Default Selection
+
+```tsx
+export function WithDefaultSelection() {
+  const [selected, setSelected] = React.useState<string[]>(["react", "vue"]);
+
+  return (
+    <MultiSelect
+      options={[
+        { label: "React", value: "react" },
+        { label: "Vue", value: "vue" },
+        { label: "Angular", value: "angular" },
+        { label: "Svelte", value: "svelte" },
+      ]}
+      selected={selected}
+      onChange={setSelected}
+    />
+  );
+}
+```
+
+### Disabled State
+
+```tsx
+export function DisabledExample() {
+  const [selected, setSelected] = React.useState<string[]>(["react"]);
+
+  return (
+    <MultiSelect
+      options={[
+        { label: "React", value: "react" },
+        { label: "Vue", value: "vue" },
+      ]}
+      selected={selected}
+      onChange={setSelected}
+      disabled
+    />
+  );
+}
+```
+
+### With Form Integration
+
+```tsx
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { MultiSelect } from "@/components/ui/multiselect-combobox";
+
+const formSchema = z.object({
+  frameworks: z
+    .array(z.string())
+    .min(1, "Please select at least one framework"),
+});
+
+export function FormExample() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      frameworks: [],
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="frameworks"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Frameworks</FormLabel>
+              <FormControl>
+                <MultiSelect
+                  options={[
+                    { label: "React", value: "react" },
+                    { label: "Vue", value: "vue" },
+                    { label: "Angular", value: "angular" },
+                    { label: "Svelte", value: "svelte" },
+                  ]}
+                  selected={field.value}
+                  onChange={field.onChange}
+                  placeholder="Select frameworks..."
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+
+## Keyboard Shortcuts
+
+- `↓` / `↑` - Navigate through options
+- `Enter` - Select/deselect highlighted option
+- `Esc` - Close the dropdown
+- `Backspace` - Remove last selected item (when input is empty)
+
+## Styling
+
+The component uses several CSS classes that can be customized:
+
+- The main button uses the `Button` component with `variant="outline"`
+- Selected items are displayed using the `Badge` component with `variant="secondary"`
+- The dropdown uses the `Command` component for search functionality
+- Responsive height with `max-h-32` for the button and scrollable content
+
+### Custom Styling Example
+
+```tsx
+<MultiSelect
+  options={options}
+  selected={selected}
+  onChange={setSelected}
+  className="border-primary hover:border-primary/80 border-2"
+/>
+```
+
+## Accessibility
+
+- Full keyboard navigation support
+- ARIA attributes for screen readers
+- Focus management for better user experience
+- Clear visual indicators for selected items

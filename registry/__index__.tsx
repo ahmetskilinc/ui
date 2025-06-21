@@ -73,7 +73,7 @@ export const Index: Record<string, any> = {
   "sidebar": {
     name: "sidebar",
     description: "",
-    type: "registry:ui",
+    type: "registry:component",
     registryDependencies: ["button","separator","sheet","tooltip","input","use-mobile","skeleton"],
     files: [{
       path: "registry/default/components/sidebar.tsx",
@@ -82,6 +82,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/components/sidebar.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "multiselect-combobox": {
+    name: "multiselect-combobox",
+    description: "",
+    type: "registry:component",
+    registryDependencies: ["button","popover","command","badge"],
+    files: [{
+      path: "registry/default/components/multiselect-combobox.tsx",
+      type: "registry:component",
+      target: "components/ui/multiselect-combobox.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/multiselect-combobox.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

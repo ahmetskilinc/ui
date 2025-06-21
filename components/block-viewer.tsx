@@ -229,7 +229,7 @@ function BlockViewerView() {
             minSize={30}
           >
             <Image
-              src={`/r/${item.name}-light.png`}
+              src={`/images/${item.name}-light.png`}
               alt={item.name}
               data-block={item.name}
               width={1440}
@@ -237,7 +237,7 @@ function BlockViewerView() {
               className="object-cover md:hidden dark:hidden md:dark:hidden"
             />
             <Image
-              src={`/r/${item.name}-dark.png`}
+              src={`/images/${item.name}-dark.png`}
               alt={item.name}
               data-block={item.name}
               width={1440}

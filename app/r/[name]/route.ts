@@ -1,6 +1,7 @@
 import { readdir, readFile } from "fs/promises";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 
 let componentsCache: Set<string> | null = null;
 
@@ -47,6 +48,8 @@ export async function GET(
     );
     const fileContent = await readFile(filePath, "utf-8");
     const jsonData = JSON.parse(fileContent);
+
+    track(`component_pulled_${componentName}`);
 
     return NextResponse.json(jsonData);
   } catch (error) {

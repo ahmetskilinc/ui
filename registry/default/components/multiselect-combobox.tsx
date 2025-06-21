@@ -72,13 +72,13 @@ export function MultiSelect({
           )}
           disabled={disabled}
         >
-          <div className="flex max-h-24 w-full flex-wrap gap-1 space-y-1 overflow-y-auto">
+          <div className="flex max-h-24 w-full flex-wrap gap-1 space-y-2 overflow-y-auto">
             {selectedOptions.length > 0 ? (
               selectedOptions.map((option) => (
                 <Badge
                   variant="secondary"
                   key={option.value}
-                  className="mr-1 flex-shrink-0"
+                  className="mr-1 mb-0 flex-shrink-0"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();

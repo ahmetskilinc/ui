@@ -21,6 +21,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { ComponentPreviewTabs } from "./components/component-preview-tabs";
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
@@ -353,4 +354,9 @@ export const mdxComponents = {
       {...props}
     />
   ),
+  ComponentPreviewTabs: (
+    props: React.ComponentProps<typeof ComponentPreviewTabs>,
+  ) => {
+    return <ComponentPreviewTabs {...props} />;
+  },
 };

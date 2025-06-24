@@ -1,0 +1,106 @@
+---
+title: Better Auth
+description: A simple authentication setup for Next.js applications using SQLite database.
+component: true
+---
+
+<Callout type="info">
+  This setup uses [Better Auth](https://better-auth.com), a modern
+  authentication library for TypeScript applications. This implementation is
+  configured with SQLite as the database and Next.js for simplicity.
+</Callout>
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/better-auth-next
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/better-auth-next
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/better-auth-next
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/better-auth-next
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+{/* ## Usage
+
+The installation creates three files for a complete authentication setup:
+
+### 1. Server Configuration (`lib/auth.ts`)
+
+```typescript
+import { betterAuth } from "better-auth";
+import Database from "better-sqlite3";
+
+export const auth = betterAuth({
+  database: new Database("./sqlite.db"),
+});
+```
+
+### 2. Client Configuration (`lib/auth-client.ts`)
+
+```typescript
+import { createAuthClient } from "better-auth/react";
+
+export const authClient = createAuthClient({
+  //you can pass client configuration here
+});
+``` */}
+
+{/* ### 3. API Route Handler (`app/api/auth/[...all]/route.ts`)
+
+The API route handler is automatically set up to handle all authentication endpoints. */}
+
+## Features
+
+- **SQLite Database** - Uses SQLite for simple, file-based data storage
+- **TypeScript Support** - Full TypeScript support out of the box
+- **Next.js Integration** - Seamlessly integrates with Next.js App Router
+- **Zero Configuration** - Works with minimal setup required
+
+## Basic Example
+
+```tsx
+import { authClient } from "@/lib/auth-client";
+
+export function LoginButton() {
+  const handleLogin = async () => {
+    await authClient.signIn.email({
+      email: "user@example.com",
+      password: "password",
+    });
+  };
+
+  return <button onClick={handleLogin}>Sign In</button>;
+}
+```
+
+{/* ## Database
+
+This setup uses SQLite which creates a `sqlite.db` file in your project root. Better Auth will automatically handle database migrations and table creation when you first run your application. */}
+
+## Next Steps
+
+After installation, you can:
+
+- Add authentication providers (Google, GitHub, etc.)
+- Customize the authentication flow
+- Add user sessions and protected routes
+- Implement user registration and profile management
+
+For more advanced configurations, refer to the [Better Auth documentation](https://better-auth.com).

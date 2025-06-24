@@ -3,7 +3,7 @@
   "name": "better-auth-next",
   "type": "registry:lib",
   "description": "",
-  "registryDependencies": [
+  "dependencies": [
     "better-auth",
     "better-sqlite3"
   ],
@@ -24,7 +24,7 @@
       "path": "registry/default/better-auth/route.ts",
       "content": "import { toNextJsHandler } from \"better-auth/next-js\";\nimport { auth } from \"./auth\";\n\nexport const { GET, POST } = toNextJsHandler(auth.handler);\n",
       "type": "registry:lib",
-      "target": "app/api/auth/[...better-auth]/route.ts"
+      "target": "app/api/auth/[...all]/route.ts"
     }
   ]
 }

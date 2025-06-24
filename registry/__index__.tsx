@@ -110,7 +110,7 @@ export const Index: Record<string, any> = {
     name: "better-auth-next",
     description: "",
     type: "registry:lib",
-    registryDependencies: ["better-auth","better-sqlite3"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/default/better-auth/auth.ts",
       type: "registry:lib",
@@ -122,7 +122,7 @@ export const Index: Record<string, any> = {
     },{
       path: "registry/default/better-auth/route.ts",
       type: "registry:lib",
-      target: "app/api/auth/[...better-auth]/route.ts"
+      target: "app/api/auth/[...all]/route.ts"
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/better-auth/auth.ts")

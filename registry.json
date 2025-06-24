@@ -131,7 +131,7 @@
       "name": "better-auth-next",
       "type": "registry:lib",
       "description": "",
-      "registryDependencies": [
+      "dependencies": [
         "better-auth",
         "better-sqlite3"
       ],
@@ -149,7 +149,7 @@
         {
           "path": "registry/default/better-auth/route.ts",
           "type": "registry:lib",
-          "target": "app/api/auth/[...better-auth]/route.ts"
+          "target": "app/api/auth/[...all]/route.ts"
         }
       ]
     }

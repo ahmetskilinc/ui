@@ -35,9 +35,6 @@ export const AppHeader = () => {
             </h1>
           </Link>
           <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
-            <Link href="/docs">Docs</Link>
-          </Button>
-          <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
             <Link href="/docs/components">Components</Link>
           </Button>
           <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
@@ -79,9 +76,6 @@ const MobileMenu = ({
         <div className="flex flex-col gap-3 px-4">
           <Link href="/" onClick={() => setMenuOpen(false)}>
             Home
-          </Link>
-          <Link href="/docs" onClick={() => setMenuOpen(false)}>
-            Docs
           </Link>
           <Link href="/docs/components" onClick={() => setMenuOpen(false)}>
             Components

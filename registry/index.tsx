@@ -1,5 +1,6 @@
 import { registryItemSchema, type Registry } from "shadcn/registry";
 import { z } from "zod";
+import { betterAuth } from "@/registry/default/better-auth";
 import { blocks } from "@/registry/default/blocks";
 import { components } from "@/registry/default/components";
 
@@ -18,5 +19,6 @@ export const registry = {
     },
     ...blocks,
     ...components,
+    ...betterAuth,
   ]),
 } satisfies Registry;

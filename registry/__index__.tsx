@@ -106,4 +106,30 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "better-auth-next": {
+    name: "better-auth-next",
+    description: "",
+    type: "registry:lib",
+    registryDependencies: ["better-auth","better-sqlite3"],
+    files: [{
+      path: "registry/default/better-auth/auth.ts",
+      type: "registry:lib",
+      target: "lib/auth.ts"
+    },{
+      path: "registry/default/better-auth/auth-client.ts",
+      type: "registry:lib",
+      target: "lib/auth-client.ts"
+    },{
+      path: "registry/default/better-auth/route.ts",
+      type: "registry:lib",
+      target: "app/api/auth/[...better-auth]/route.ts"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/better-auth/auth.ts")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   }

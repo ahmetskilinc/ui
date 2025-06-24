@@ -126,6 +126,32 @@
           "target": "components/ui/multiselect-combobox.tsx"
         }
       ]
+    },
+    {
+      "name": "better-auth-next",
+      "type": "registry:lib",
+      "description": "",
+      "registryDependencies": [
+        "better-auth",
+        "better-sqlite3"
+      ],
+      "files": [
+        {
+          "path": "registry/default/better-auth/auth.ts",
+          "type": "registry:lib",
+          "target": "lib/auth.ts"
+        },
+        {
+          "path": "registry/default/better-auth/auth-client.ts",
+          "type": "registry:lib",
+          "target": "lib/auth-client.ts"
+        },
+        {
+          "path": "registry/default/better-auth/route.ts",
+          "type": "registry:lib",
+          "target": "app/api/auth/[...better-auth]/route.ts"
+        }
+      ]
     }
   ]
 }

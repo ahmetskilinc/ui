@@ -33,7 +33,7 @@ export function CodeBlockCommand({
     }
   }, [hasCopied]);
 
-  const packageManager = config.packageManager || "pnpm";
+  const packageManager = config.packageManager || "bun";
   const tabs = React.useMemo(() => {
     return {
       pnpm: __pnpm__,

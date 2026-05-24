@@ -9,7 +9,7 @@ type Config = {
 
 const configAtom = atomWithStorage<Config>("config", {
   style: "default",
-  packageManager: "pnpm",
+  packageManager: "bun",
   installationType: "cli",
 });
 

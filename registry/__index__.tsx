@@ -124,6 +124,114 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "tags-input": {
+    name: "tags-input",
+    description: "Versatile chip-style tag input with paste-splitting, validation, dedupe, max-tags, and keyboard editing.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/tags-input.tsx",
+      type: "registry:component",
+      target: "components/ui/tags-input.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/tags-input.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "shortcut-recorder": {
+    name: "shortcut-recorder",
+    description: "Records keyboard shortcuts (modifier+key combos) for hotkey settings UIs. Includes a useKeyboardShortcut hook and a shortcutMatches helper.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/shortcut-recorder.tsx",
+      type: "registry:component",
+      target: "components/ui/shortcut-recorder.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/shortcut-recorder.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "image-comparison": {
+    name: "image-comparison",
+    description: "A draggable before/after image comparison slider with horizontal or vertical orientation, hover-to-reveal, and full keyboard support.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/image-comparison.tsx",
+      type: "registry:component",
+      target: "components/ui/image-comparison.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/image-comparison.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "activity-heatmap": {
+    name: "activity-heatmap",
+    description: "GitHub-style contribution heatmap. Supports custom date ranges, configurable thresholds, weekday/month labels, legend, and per-cell tooltips.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/activity-heatmap.tsx",
+      type: "registry:component",
+      target: "components/ui/activity-heatmap.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/activity-heatmap.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "cron-builder": {
+    name: "cron-builder",
+    description: "Visual builder for cron expressions with hourly/daily/weekly/monthly modes, raw expression editing, validation, and human-readable preview.",
+    type: "registry:component",
+    registryDependencies: ["input","label","toggle-group"],
+    files: [{
+      path: "registry/default/components/cron-builder.tsx",
+      type: "registry:component",
+      target: "components/ui/cron-builder.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/cron-builder.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "inline-edit": {
+    name: "inline-edit",
+    description: "Click-to-edit text field with optimistic save, escape-to-cancel, validation, async submit support, and multiline mode.",
+    type: "registry:component",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/inline-edit.tsx",
+      type: "registry:component",
+      target: "components/ui/inline-edit.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/inline-edit.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "better-auth-next": {
     name: "better-auth-next",
     description: "",

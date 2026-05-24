@@ -1,0 +1,87 @@
+---
+title: Activity Heatmap
+description: A GitHub-style contribution heatmap. Date-aware, themeable buckets, weekday/month labels, click handlers, and tooltips.
+component: true
+---
+
+import ActivityHeatmapPreview from "@/components/activity-heatmap-preview";
+
+<ComponentPreviewTabs id="activity-heatmap" component={<ActivityHeatmapPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/activity-heatmap
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/activity-heatmap
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/activity-heatmap
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/activity-heatmap
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ActivityHeatmap } from "@/components/ui/activity-heatmap";
+
+export function Demo() {
+  const data = [
+    { date: "2025-01-01", value: 4 },
+    { date: "2025-01-02", value: 1 },
+    { date: "2025-01-03", value: 9 },
+  ];
+
+  return (
+    <ActivityHeatmap
+      data={data}
+      formatTooltip={(d) => `${d.value} contributions on ${d.date}`}
+      onCellClick={(d) => console.log(d)}
+    />
+  );
+}
+```
+
+## Features
+
+- **Auto thresholds** — quartile-based bucketing across your data; or pass your own `thresholds` array.
+- **Themeable scale** — provide any `colorScale` of Tailwind classes.
+- **Date utilities built in** — pass `weeks={26}` for the last 6 months, or explicit `startDate`/`endDate`.
+- **Localizable** — `weekStartsOn` for Sun/Mon-start weeks.
+- **Per-cell click & tooltip** — wire it up to a popover for full activity drill-down.
+- **No deps** — pure CSS grid + Tailwind.
+
+## Props
+
+| Prop                | Type                                                             | Default        |
+| ------------------- | ---------------------------------------------------------------- | -------------- |
+| `data`              | `{ date: string; value: number; label?: string }[]`              | Required       |
+| `weeks`             | `number`                                                         | `53`           |
+| `startDate`         | `Date \| string`                                                 | `undefined`    |
+| `endDate`           | `Date \| string`                                                 | today          |
+| `weekStartsOn`      | `0 \| 1`                                                         | `0`            |
+| `levels`            | `number`                                                         | `5`            |
+| `thresholds`        | `number[]`                                                       | auto           |
+| `cellSize`          | `number`                                                         | `12`           |
+| `cellGap`           | `number`                                                         | `3`            |
+| `colorScale`        | `string[]`                                                       | green scale    |
+| `showWeekdayLabels` | `boolean`                                                        | `true`         |
+| `showMonthLabels`   | `boolean`                                                        | `true`         |
+| `showLegend`        | `boolean`                                                        | `true`         |
+| `formatTooltip`     | `(day) => ReactNode`                                             | `undefined`    |
+| `onCellClick`       | `(day, event) => void`                                           | `undefined`    |

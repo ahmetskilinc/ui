@@ -34,3 +34,4 @@ export { SettingsIcon } from "lucide-react";
 export { Loader2Icon } from "lucide-react";
 export { SkipForwardIcon } from "lucide-react";
 export { SkipBackIcon } from "lucide-react";
+export { PencilIcon } from "lucide-react";

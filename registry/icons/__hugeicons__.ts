@@ -34,3 +34,4 @@ export { Settings02Icon } from "@hugeicons/core-free-icons";
 export { Loading03Icon } from "@hugeicons/core-free-icons";
 export { NextIcon } from "@hugeicons/core-free-icons";
 export { PreviousIcon } from "@hugeicons/core-free-icons";
+export { PencilEdit02Icon } from "@hugeicons/core-free-icons";

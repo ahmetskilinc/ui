@@ -1,0 +1,87 @@
+---
+title: Inline Edit
+description: A click-to-edit text field. Optimistic save, escape-to-cancel, validation, async submit, and multiline mode.
+component: true
+---
+
+import InlineEditPreview from "@/components/inline-edit-preview";
+
+<ComponentPreviewTabs id="inline-edit" component={<InlineEditPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/inline-edit
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/inline-edit
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/inline-edit
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/inline-edit
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { InlineEdit } from "@/components/ui/inline-edit";
+
+export function Demo() {
+  const [title, setTitle] = React.useState("Untitled");
+
+  return (
+    <InlineEdit
+      value={title}
+      onChange={setTitle}
+      onSubmit={async (v) => {
+        await fetch("/api/title", {
+          method: "POST",
+          body: JSON.stringify({ title: v }),
+        });
+      }}
+      required
+      textClassName="text-lg font-semibold"
+    />
+  );
+}
+```
+
+## Features
+
+- **Click to edit** — looks like text, becomes an input on click.
+- **Async submit** — pass `onSubmit` for optimistic updates with disabled-state during the request.
+- **Validation** — return a string from `validate` to show an error.
+- **Multiline** — set `multiline` for a textarea (Cmd/Ctrl+Enter to save).
+- **Escape to cancel** — restores the original value.
+- **Custom display** — pass `renderDisplay` to render markdown, badges, links, etc.
+
+## Props
+
+| Prop                 | Type                                       | Default          |
+| -------------------- | ------------------------------------------ | ---------------- |
+| `value`              | `string`                                   | Required         |
+| `onChange`           | `(value: string) => void`                  | Required         |
+| `onSubmit`           | `(value: string) => void \| Promise<void>` | `undefined`      |
+| `validate`           | `(value: string) => boolean \| string`     | `undefined`      |
+| `placeholder`        | `string`                                   | `"Type something…"` |
+| `emptyText`          | `string`                                   | `"Click to edit"` |
+| `multiline`          | `boolean`                                  | `false`          |
+| `required`           | `boolean`                                  | `false`          |
+| `triggerOnBlur`      | `"save" \| "cancel"`                       | `"save"`         |
+| `selectAllOnEdit`    | `boolean`                                  | `true`           |
+| `showActions`        | `boolean`                                  | `true`           |
+| `renderDisplay`      | `(value: string) => ReactNode`             | `undefined`      |

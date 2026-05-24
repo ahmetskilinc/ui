@@ -1,0 +1,94 @@
+---
+title: Shortcut Recorder
+description: Record real keyboard shortcuts for hotkey settings UIs. Captures live key combinations and ships with a useKeyboardShortcut hook to bind them.
+component: true
+---
+
+import ShortcutRecorderPreview from "@/components/shortcut-recorder-preview";
+
+<ComponentPreviewTabs id="shortcut-recorder" component={<ShortcutRecorderPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/shortcut-recorder
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/shortcut-recorder
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/shortcut-recorder
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/shortcut-recorder
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  ShortcutRecorder,
+  useKeyboardShortcut,
+} from "@/components/ui/shortcut-recorder";
+
+export function Demo() {
+  const [shortcut, setShortcut] = React.useState<string[]>(["Meta", "K"]);
+
+  useKeyboardShortcut(shortcut, (e) => {
+    e.preventDefault();
+    console.log("Shortcut fired!");
+  });
+
+  return <ShortcutRecorder value={shortcut} onChange={setShortcut} />;
+}
+```
+
+## Why this is unique
+
+Most registries ship a static `<Kbd>` component. This component actually *records* shortcuts from real key events and gives you:
+
+- A token-based representation (`["Meta", "Shift", "K"]`) you can persist anywhere.
+- Automatic Mac/Windows symbol formatting (⌘/⌥/⌃/⇧ vs Ctrl/Alt/Shift/Win).
+- A `useKeyboardShortcut(tokens, handler)` hook to bind a recorded shortcut directly.
+- A `shortcutMatches(event, tokens)` helper for custom listeners.
+- Conflict detection via the `forbidden` prop.
+
+## Props
+
+| Prop                 | Type                                          | Default               |
+| -------------------- | --------------------------------------------- | --------------------- |
+| `value`              | `string[]`                                    | Required              |
+| `onChange`           | `(value: string[]) => void`                   | Required              |
+| `placeholder`        | `string`                                      | `"Press shortcut"`    |
+| `allowSingleKey`     | `boolean`                                     | `false`               |
+| `allowedModifiers`   | `("Meta" \| "Control" \| "Alt" \| "Shift")[]` | all                   |
+| `forbidden`          | `string[][]`                                  | `[]`                  |
+| `maxKeys`            | `number`                                      | `4`                   |
+| `autoCommitOnBlur`   | `boolean`                                     | `true`                |
+| `onConflict`         | `(conflict: string[]) => void`                | `undefined`           |
+
+## Helpers
+
+```tsx
+import {
+  formatShortcut,
+  shortcutMatches,
+  useKeyboardShortcut,
+} from "@/components/ui/shortcut-recorder";
+
+formatShortcut(["Meta", "K"]);
+shortcutMatches(event, ["Meta", "K"]);
+useKeyboardShortcut(["Meta", "K"], (e) => {});
+```

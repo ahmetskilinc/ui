@@ -1,0 +1,81 @@
+---
+title: Cron Builder
+description: A visual editor for cron expressions. Hourly/daily/weekly/monthly modes, raw expression editing, validation, and a human-readable preview.
+component: true
+---
+
+import CronBuilderPreview from "@/components/cron-builder-preview";
+
+<ComponentPreviewTabs id="cron-builder" component={<CronBuilderPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/cron-builder
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/cron-builder
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/cron-builder
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/cron-builder
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CronBuilder, type CronValue } from "@/components/ui/cron-builder";
+
+export function Demo() {
+  const [value, setValue] = React.useState<CronValue>({
+    expression: "0 9 * * 1",
+    mode: "weekly",
+  });
+
+  return <CronBuilder value={value} onChange={setValue} />;
+}
+```
+
+## Why this is unique
+
+There are no shadcn-compatible cron builders out there. This one ships:
+
+- **Bidirectional sync** — typing a raw expression updates the visual mode automatically.
+- **Live validation** — invalid expressions are flagged in real time.
+- **Human readable preview** — `humanizeCron(expression)` is exported as a utility.
+- **Mode locking** — restrict to a subset of modes (e.g. only `daily` and `weekly`).
+- **No external cron parser** — pure TypeScript, ~3kb gzipped.
+
+## Props
+
+| Prop                  | Type                                | Default                                     |
+| --------------------- | ----------------------------------- | ------------------------------------------- |
+| `value`               | `CronValue`                         | `undefined`                                 |
+| `defaultValue`        | `CronValue`                         | `{ expression: "0 * * * *", mode: "hourly" }` |
+| `onChange`            | `(value: CronValue) => void`        | `undefined`                                 |
+| `modes`               | `CronMode[]`                        | all                                         |
+| `showHumanReadable`   | `boolean`                           | `true`                                      |
+| `showExpression`      | `boolean`                           | `true`                                      |
+
+## Helpers
+
+```tsx
+import { humanizeCron } from "@/components/ui/cron-builder";
+
+humanizeCron("0 9 * * 1");
+humanizeCron("*/15 * * * *");
+```

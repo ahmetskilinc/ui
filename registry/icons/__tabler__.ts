@@ -34,3 +34,4 @@ export { IconSettings } from "@tabler/icons-react";
 export { IconLoader2 } from "@tabler/icons-react";
 export { IconPlayerSkipForward } from "@tabler/icons-react";
 export { IconPlayerSkipBack } from "@tabler/icons-react";
+export { IconPencil } from "@tabler/icons-react";

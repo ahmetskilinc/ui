@@ -34,3 +34,4 @@ export { GearIcon } from "@phosphor-icons/react";
 export { CircleNotchIcon } from "@phosphor-icons/react";
 export { SkipForwardIcon } from "@phosphor-icons/react";
 export { SkipBackIcon } from "@phosphor-icons/react";
+export { PencilSimpleIcon } from "@phosphor-icons/react";

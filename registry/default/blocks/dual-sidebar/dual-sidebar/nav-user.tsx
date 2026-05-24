@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
+import { IconPlaceholder } from "@/components/icon-placeholder";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -53,7 +46,13 @@ export function NavUser({
                 <span className="truncate font-medium">{user.name}</span>
                 <span className="truncate text-xs">{user.email}</span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
+              <IconPlaceholder
+                lucide="ChevronsUpDownIcon"
+                tabler="IconSelector"
+                hugeicons="UnfoldMoreIcon"
+                phosphor="CaretUpDownIcon"
+                className="ml-auto size-4"
+              />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -77,28 +76,53 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
+                <IconPlaceholder
+                  lucide="SparklesIcon"
+                  tabler="IconSparkles"
+                  hugeicons="SparklesIcon"
+                  phosphor="SparkleIcon"
+                />
                 Upgrade to Pro
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <BadgeCheck />
+                <IconPlaceholder
+                  lucide="BadgeCheckIcon"
+                  tabler="IconRosetteDiscountCheck"
+                  hugeicons="CheckmarkBadge02Icon"
+                  phosphor="SealCheckIcon"
+                />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard />
+                <IconPlaceholder
+                  lucide="CreditCardIcon"
+                  tabler="IconCreditCard"
+                  hugeicons="CreditCardIcon"
+                  phosphor="CreditCardIcon"
+                />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Bell />
+                <IconPlaceholder
+                  lucide="BellIcon"
+                  tabler="IconBell"
+                  hugeicons="NotificationIcon"
+                  phosphor="BellIcon"
+                />
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOut />
+              <IconPlaceholder
+                lucide="LogOutIcon"
+                tabler="IconLogout"
+                hugeicons="Logout01Icon"
+                phosphor="SignOutIcon"
+              />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

@@ -106,6 +106,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "video-player": {
+    name: "video-player",
+    description: "A composable custom video player with accessible controls and icon-library-agnostic icons.",
+    type: "registry:component",
+    registryDependencies: ["button","slider","tooltip","dropdown-menu"],
+    files: [{
+      path: "registry/default/components/video-player.tsx",
+      type: "registry:component",
+      target: "components/ui/video-player.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/video-player.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "better-auth-next": {
     name: "better-auth-next",
     description: "",

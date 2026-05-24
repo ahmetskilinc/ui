@@ -52,6 +52,7 @@ const MenuIcon = ({
           x2="20"
           y2="6"
           variants={lineVariants}
+          initial="normal"
           animate={isOpen ? "animate" : "normal"}
           custom={1}
         />
@@ -61,6 +62,7 @@ const MenuIcon = ({
           x2="20"
           y2="12"
           variants={lineVariants}
+          initial="normal"
           animate={isOpen ? "animate" : "normal"}
           custom={2}
         />
@@ -70,6 +72,7 @@ const MenuIcon = ({
           x2="20"
           y2="18"
           variants={lineVariants}
+          initial="normal"
           animate={isOpen ? "animate" : "normal"}
           custom={3}
         />

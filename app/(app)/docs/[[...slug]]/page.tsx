@@ -1,14 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  // IconArrowLeft,
-  // IconArrowRight,
-  IconArrowUpRight,
-} from "@tabler/icons-react";
-// import { findNeighbour } from "fumadocs-core/server";
 import { DocsTableOfContents } from "@/components/docs-toc";
-import { Badge } from "@/components/ui/badge";
-// import { Button } from "@/components/ui/button";
 import { source } from "@/lib/source";
 import { absoluteUrl } from "@/lib/utils";
 import { mdxComponents } from "@/mdx-components";
@@ -79,12 +70,7 @@ export default async function Page(props: {
   }
 
   const doc = page.data;
-  // @ts-expect-error - revisit fumadocs types.
   const MDX = doc.body;
-  // const neighbours = await findNeighbour(source.pageTree, page.url);
-
-  // @ts-expect-error - revisit fumadocs types.
-  const links = doc.links;
 
   return (
     <div
@@ -100,34 +86,6 @@ export default async function Page(props: {
                 <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
                   {doc.title}
                 </h1>
-                {/* <div className="flex items-center gap-2 pt-1.5">
-                  {neighbours.previous && (
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      className="extend-touch-target size-8 shadow-none md:size-7"
-                      asChild
-                    >
-                      <Link href={neighbours.previous.url}>
-                        <IconArrowLeft />
-                        <span className="sr-only">Previous</span>
-                      </Link>
-                    </Button>
-                  )}
-                  {neighbours.next && (
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      className="extend-touch-target size-8 shadow-none md:size-7"
-                      asChild
-                    >
-                      <Link href={neighbours.next.url}>
-                        <span className="sr-only">Next</span>
-                        <IconArrowRight />
-                      </Link>
-                    </Button>
-                  )}
-                </div> */}
               </div>
               {doc.description && (
                 <p className="text-[1.05rem] text-balance text-muted-foreground sm:text-base">
@@ -135,62 +93,16 @@ export default async function Page(props: {
                 </p>
               )}
             </div>
-            {links ? (
-              <div className="flex items-center space-x-2 pt-4">
-                {links?.doc && (
-                  <Badge asChild variant="secondary">
-                    <Link href={links.doc} target="_blank" rel="noreferrer">
-                      Docs <IconArrowUpRight />
-                    </Link>
-                  </Badge>
-                )}
-                {links?.api && (
-                  <Badge asChild variant="secondary">
-                    <Link href={links.api} target="_blank" rel="noreferrer">
-                      API Reference <IconArrowUpRight />
-                    </Link>
-                  </Badge>
-                )}
-              </div>
-            ) : null}
           </div>
           <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
             <MDX components={mdxComponents} />
           </div>
         </div>
-        {/* <div className="mx-auto flex h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
-          {neighbours.previous && (
-            <Button
-              variant="secondary"
-              size="sm"
-              asChild
-              className="shadow-none"
-            >
-              <Link href={neighbours.previous.url}>
-                <IconArrowLeft /> {neighbours.previous.name}
-              </Link>
-            </Button>
-          )}
-          {neighbours.next && (
-            <Button
-              variant="secondary"
-              size="sm"
-              className="ml-auto shadow-none"
-              asChild
-            >
-              <Link href={neighbours.next.url}>
-                {neighbours.next.name} <IconArrowRight />
-              </Link>
-            </Button>
-          )}
-        </div> */}
       </div>
       <div className="sticky top-[var(--header-height)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div className="h-(--top-spacing) shrink-0" />
-        {/* @ts-expect-error - revisit fumadocs types. */}
         {doc.toc?.length ? (
           <div className="no-scrollbar overflow-y-auto px-8">
-            {/* @ts-expect-error - revisit fumadocs types. */}
             <DocsTableOfContents toc={doc.toc} />
             <div className="h-12" />
           </div>

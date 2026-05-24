@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRightIcon, GithubIcon } from "lucide-react";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { ArrowUpRightIcon } from "lucide-react";
+import { IconLibraryPicker } from "@/components/icon-library-picker";
 import { MenuIcon } from "@/components/ui/menu";
 import {
   Sheet,
@@ -42,6 +44,7 @@ export const AppHeader = () => {
           </Button>
         </div>
         <div className="flex flex-row items-center md:gap-1">
+          <IconLibraryPicker />
           <Button variant="ghost" size="sm" asChild>
             <Link href="https://dub.sh/ahmet" className="text-xs sm:text-sm">
               Portfolio <ArrowUpRightIcon className="h-[1.2rem] w-[1.2rem]" />
@@ -49,7 +52,7 @@ export const AppHeader = () => {
           </Button>
           <Button variant="ghost" size="sm" asChild>
             <Link href="https://l.ahmet.studio/gh">
-              <GithubIcon className="h-[1.2rem] w-[1.2rem]" />
+              <IconBrandGithub className="h-[1.2rem] w-[1.2rem]" />
             </Link>
           </Button>
           <ModeToggle />

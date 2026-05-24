@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
+import { IconPlaceholder } from "@/components/icon-placeholder";
 import {
   Collapsible,
   CollapsibleContent,
@@ -23,7 +24,7 @@ export function NavMain({
   items: {
     title: string;
     url: string;
-    icon?: LucideIcon;
+    icon?: ReactNode;
     isActive?: boolean;
     items?: {
       title: string;
@@ -45,9 +46,15 @@ export function NavMain({
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
+                  {item.icon}
                   <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  <IconPlaceholder
+                    lucide="ChevronRightIcon"
+                    tabler="IconChevronRight"
+                    hugeicons="ArrowRight01Icon"
+                    phosphor="CaretRightIcon"
+                    className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                  />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

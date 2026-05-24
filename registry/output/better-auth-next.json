@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "better-auth-next",
-  "type": "registry:lib",
   "description": "",
   "dependencies": [
     "better-auth",
@@ -26,5 +25,6 @@
       "type": "registry:lib",
       "target": "app/api/auth/[...all]/route.ts"
     }
-  ]
+  ],
+  "type": "registry:lib"
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { IconPlaceholder } from "@/components/icon-placeholder";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -103,7 +103,13 @@ export function MultiSelect({
                       handleUnselect(option.value);
                     }}
                   >
-                    <X className="h-3 w-3 text-muted-foreground hover:text-foreground" />
+                    <IconPlaceholder
+                      lucide="XIcon"
+                      tabler="IconX"
+                      hugeicons="Cancel01Icon"
+                      phosphor="XIcon"
+                      className="h-3 w-3 text-muted-foreground hover:text-foreground"
+                    />
                   </button>
                 </Badge>
               ))
@@ -111,7 +117,13 @@ export function MultiSelect({
               <span className="text-muted-foreground">{placeholder}</span>
             )}
           </div>
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <IconPlaceholder
+            lucide="ChevronsUpDownIcon"
+            tabler="IconSelector"
+            hugeicons="UnfoldMoreIcon"
+            phosphor="CaretUpDownIcon"
+            className="ml-2 h-4 w-4 shrink-0 opacity-50"
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -130,7 +142,11 @@ export function MultiSelect({
                   value={option.value}
                   onSelect={() => handleSelect(option.value)}
                 >
-                  <Check
+                  <IconPlaceholder
+                    lucide="CheckIcon"
+                    tabler="IconCheck"
+                    hugeicons="Tick02Icon"
+                    phosphor="CheckIcon"
                     className={cn(
                       "mr-2 h-4 w-4",
                       selected.includes(option.value)

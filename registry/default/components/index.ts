@@ -1,4 +1,4 @@
-import { type Registry } from "shadcn/registry";
+import { type Registry } from "shadcn/schema";
 
 export const components: Registry["items"] = [
   {
@@ -33,6 +33,27 @@ export const components: Registry["items"] = [
         path: "default/components/multiselect-combobox.tsx",
         type: "registry:component",
         target: "components/ui/multiselect-combobox.tsx",
+      },
+    ],
+    categories: undefined,
+  },
+  {
+    name: "video-player",
+    description:
+      "A composable custom video player with accessible controls and icon-library-agnostic icons.",
+    type: "registry:component",
+    dependencies: ["@radix-ui/react-slider"],
+    registryDependencies: [
+      "button",
+      "slider",
+      "tooltip",
+      "dropdown-menu",
+    ],
+    files: [
+      {
+        path: "default/components/video-player.tsx",
+        type: "registry:component",
+        target: "components/ui/video-player.tsx",
       },
     ],
     categories: undefined,

@@ -12,7 +12,7 @@ import {
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
-import { PanelLeftIcon } from "lucide-react";
+import { IconPlaceholder } from "@/components/icon-placeholder";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -206,12 +206,8 @@ function SidebarProvider({
       isMobile,
     }),
     [
-      leftState.state,
-      leftState.open,
-      leftState.openMobile,
-      rightState.state,
-      rightState.open,
-      rightState.openMobile,
+      leftState,
+      rightState,
       isMobile,
       setOpenLeft,
       setOpenRight,
@@ -385,7 +381,11 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon
+      <IconPlaceholder
+        lucide="PanelLeftIcon"
+        tabler="IconLayoutSidebar"
+        hugeicons="SidebarLeft01Icon"
+        phosphor="SidebarSimpleIcon"
         className={cn({
           "rotate-180": targetSide === "right",
         })}
@@ -716,9 +716,9 @@ function SidebarMenuSkeleton({
 }: ComponentProps<"div"> & {
   showIcon?: boolean;
 }) {
-  const width = useMemo(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`;
-  }, []);
+  const [width] = useState(
+    () => `${Math.floor(Math.random() * 40) + 50}%`,
+  );
 
   return (
     <div

@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { registryItemFileSchema } from "shadcn/registry";
+import { registryItemFileSchema } from "shadcn/schema";
 import { z } from "zod";
 import { BlockViewer } from "@/components/block-viewer";
 import { highlightCode } from "@/lib/highlight-code";

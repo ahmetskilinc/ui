@@ -1,4 +1,4 @@
-import { registryItemSchema, type Registry } from "shadcn/registry";
+import { registryItemSchema, type Registry } from "shadcn/schema";
 import { z } from "zod";
 import { betterAuth } from "@/registry/default/better-auth";
 import { blocks } from "@/registry/default/blocks";

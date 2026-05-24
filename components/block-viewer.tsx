@@ -25,7 +25,7 @@ import {
   Terminal,
 } from "lucide-react";
 import { ImperativePanelHandle } from "react-resizable-panels";
-import { registryItemFileSchema, registryItemSchema } from "shadcn/registry";
+import { registryItemFileSchema, registryItemSchema } from "shadcn/schema";
 import { z } from "zod";
 import { getIconForLanguageExtension } from "@/components/icons";
 import { OpenInV0Button } from "@/components/open-in-v0-button";

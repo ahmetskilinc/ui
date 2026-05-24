@@ -1,18 +1,7 @@
 "use client";
 
 import { ComponentProps } from "react";
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react";
+import { IconPlaceholder } from "@/components/icon-placeholder";
 import {
   Sidebar,
   SidebarContent,
@@ -25,7 +14,6 @@ import { NavProjects } from "./nav-projects";
 import { NavUser } from "./nav-user";
 import { TeamSwitcher } from "./team-switcher";
 
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",
@@ -35,17 +23,41 @@ const data = {
   teams: [
     {
       name: "Acme Inc",
-      logo: GalleryVerticalEnd,
+      logo: (
+        <IconPlaceholder
+          lucide="GalleryVerticalEndIcon"
+          tabler="IconLayoutNavbarCollapse"
+          hugeicons="Layout03Icon"
+          phosphor="StackIcon"
+          className="size-4"
+        />
+      ),
       plan: "Enterprise",
     },
     {
       name: "Acme Corp.",
-      logo: AudioWaveform,
+      logo: (
+        <IconPlaceholder
+          lucide="AudioLinesIcon"
+          tabler="IconWaveSine"
+          hugeicons="AudioWave01Icon"
+          phosphor="WaveSineIcon"
+          className="size-4"
+        />
+      ),
       plan: "Startup",
     },
     {
       name: "Evil Corp.",
-      logo: Command,
+      logo: (
+        <IconPlaceholder
+          lucide="CommandIcon"
+          tabler="IconCommand"
+          hugeicons="CommandIcon"
+          phosphor="CommandIcon"
+          className="size-4"
+        />
+      ),
       plan: "Free",
     },
   ],
@@ -53,86 +65,72 @@ const data = {
     {
       title: "Playground",
       url: "#",
-      icon: SquareTerminal,
+      icon: (
+        <IconPlaceholder
+          lucide="SquareTerminalIcon"
+          tabler="IconTerminal2"
+          hugeicons="TerminalIcon"
+          phosphor="TerminalWindowIcon"
+        />
+      ),
       isActive: true,
       items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
+        { title: "History", url: "#" },
+        { title: "Starred", url: "#" },
+        { title: "Settings", url: "#" },
       ],
     },
     {
       title: "Models",
       url: "#",
-      icon: Bot,
+      icon: (
+        <IconPlaceholder
+          lucide="BotIcon"
+          tabler="IconRobot"
+          hugeicons="Robot01Icon"
+          phosphor="RobotIcon"
+        />
+      ),
       items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
+        { title: "Genesis", url: "#" },
+        { title: "Explorer", url: "#" },
+        { title: "Quantum", url: "#" },
       ],
     },
     {
       title: "Documentation",
       url: "#",
-      icon: BookOpen,
+      icon: (
+        <IconPlaceholder
+          lucide="BookOpenIcon"
+          tabler="IconBook"
+          hugeicons="Book01Icon"
+          phosphor="BookOpenIcon"
+        />
+      ),
       items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+        { title: "Introduction", url: "#" },
+        { title: "Get Started", url: "#" },
+        { title: "Tutorials", url: "#" },
+        { title: "Changelog", url: "#" },
       ],
     },
     {
       title: "Settings",
       url: "#",
-      icon: Settings2,
+      icon: (
+        <IconPlaceholder
+          lucide="Settings2Icon"
+          tabler="IconAdjustments"
+          hugeicons="Setting06Icon"
+          phosphor="GearSixIcon"
+        />
+      ),
       items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+        { title: "General", url: "#" },
+        { title: "Team", url: "#" },
+        { title: "Billing", url: "#" },
+        { title: "Limits", url: "#" },
       ],
     },
   ],
@@ -140,17 +138,38 @@ const data = {
     {
       name: "Design Engineering",
       url: "#",
-      icon: Frame,
+      icon: (
+        <IconPlaceholder
+          lucide="FrameIcon"
+          tabler="IconFrame"
+          hugeicons="Layout01Icon"
+          phosphor="FrameCornersIcon"
+        />
+      ),
     },
     {
       name: "Sales & Marketing",
       url: "#",
-      icon: PieChart,
+      icon: (
+        <IconPlaceholder
+          lucide="PieChartIcon"
+          tabler="IconChartPie"
+          hugeicons="PieChart01Icon"
+          phosphor="ChartPieIcon"
+        />
+      ),
     },
     {
       name: "Travel",
       url: "#",
-      icon: Map,
+      icon: (
+        <IconPlaceholder
+          lucide="MapIcon"
+          tabler="IconMap"
+          hugeicons="MapsIcon"
+          phosphor="MapTrifoldIcon"
+        />
+      ),
     },
   ],
 };

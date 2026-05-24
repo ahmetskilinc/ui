@@ -1,0 +1,135 @@
+---
+title: Video Player
+description: A composable, accessible custom video player with auto-hiding controls, keyboard shortcuts, picture-in-picture, fullscreen, and icon-library-agnostic icons.
+component: true
+---
+
+import VideoPlayerPreview from "@/components/video-player-preview";
+
+<Callout type="info">
+  Every icon in this component uses the `<IconPlaceholder>` pattern so the shadcn CLI will swap them to the consumer's preferred icon library (Lucide, Tabler, HugeIcons, Phosphor) at install time. Use the icon picker in the header to preview what the component looks like with each library.
+</Callout>
+
+<ComponentPreviewTabs id="video-player" component={<VideoPlayerPreview />} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/video-player
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/video-player
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/video-player
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/video-player
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { VideoPlayer } from "@/components/ui/video-player";
+
+export default function Example() {
+  return (
+    <VideoPlayer
+      src="/path/to/video.mp4"
+      poster="/path/to/poster.jpg"
+      className="aspect-video"
+    />
+  );
+}
+```
+
+## Features
+
+- **Auto-hiding controls** — controls fade out while playing and reappear on mouse movement or focus.
+- **Seek bar with buffered indicator** — Radix slider for smooth scrubbing with a behind-it buffered range track.
+- **Volume with mute toggle** — hover the volume button to reveal an inline slider.
+- **Playback speed menu** — 0.5x through 2x via a dropdown.
+- **Picture-in-Picture** — toggle button only renders when supported by the browser.
+- **Fullscreen** — uses the standard fullscreen API on the player container.
+- **Loading spinner** — shows while the video is buffering.
+- **Imperative handle** — pass a `ref` to call `.play()`, `.pause()`, `.seek(s)`, or grab the underlying `<video>`.
+
+## Keyboard Shortcuts
+
+| Key | Action |
+| --- | --- |
+| `Space` / `k` | Play / pause |
+| `←` / `→` | Seek ±5 seconds |
+| `↑` / `↓` | Volume up / down (5%) |
+| `m` | Toggle mute |
+| `f` | Toggle fullscreen |
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `src` | `string` | required | Video source URL. |
+| `poster` | `string` | — | Poster image shown before playback. |
+| `className` | `string` | — | Applied to the `<video>` element. |
+| `containerClassName` | `string` | — | Applied to the outer container. |
+| `autoHideControlsMs` | `number` | `2500` | Idle timeout before controls auto-hide while playing. Set `0` to keep them visible. |
+
+All other native `<video>` attributes (`autoPlay`, `loop`, `muted`, event handlers, etc.) are forwarded to the underlying element.
+
+## Imperative API
+
+```tsx
+import { useRef } from "react";
+import {
+  VideoPlayer,
+  type VideoPlayerHandle,
+} from "@/components/ui/video-player";
+
+export function Controlled() {
+  const ref = useRef<VideoPlayerHandle>(null);
+
+  return (
+    <div className="flex flex-col gap-2">
+      <VideoPlayer ref={ref} src="/video.mp4" className="aspect-video" />
+      <div className="flex gap-2">
+        <button onClick={() => ref.current?.play()}>Play</button>
+        <button onClick={() => ref.current?.pause()}>Pause</button>
+        <button onClick={() => ref.current?.seek(30)}>Skip to 0:30</button>
+      </div>
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+- The container is keyboard-focusable; all shortcuts dispatch from there.
+- Every control button has an `aria-label` and a tooltip.
+- The Picture-in-Picture button is hidden when the browser does not support it.
+- Focus rings honour the global `ring` token.
+
+## Icon Library Swap
+
+The component is authored with `<IconPlaceholder lucide="..." tabler="..." hugeicons="..." phosphor="..." />`. When you install with `npx shadcn@latest add`, the shadcn CLI looks at your `components.json` `iconLibrary` setting and rewrites every placeholder to the chosen library's native component, replacing the import accordingly. No runtime cost is added on the consumer side.
+
+Set your icon library in `components.json`:
+
+```json
+{
+  "iconLibrary": "tabler"
+}
+```
+
+Then install — the imports and JSX will use `@tabler/icons-react` automatically.

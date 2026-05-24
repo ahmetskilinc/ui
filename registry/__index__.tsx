@@ -70,6 +70,78 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "input": {
+    name: "input",
+    description: "A simple text input styled with the registry design tokens.",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/input.tsx",
+      type: "registry:ui",
+      target: "components/ui/input.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/input.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "label": {
+    name: "label",
+    description: "A form label primitive styled with the registry design tokens.",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/label.tsx",
+      type: "registry:ui",
+      target: "components/ui/label.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/label.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "select": {
+    name: "select",
+    description: "A simple native select styled with the registry design tokens.",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/select.tsx",
+      type: "registry:ui",
+      target: "components/ui/select.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/select.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "textarea": {
+    name: "textarea",
+    description: "A simple textarea styled with the registry design tokens.",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/default/components/textarea.tsx",
+      type: "registry:ui",
+      target: "components/ui/textarea.tsx"
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/components/textarea.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "sidebar": {
     name: "sidebar",
     description: "",
@@ -200,7 +272,7 @@ export const Index: Record<string, any> = {
     name: "cron-builder",
     description: "Visual builder for cron expressions with hourly/daily/weekly/monthly modes, raw expression editing, validation, and human-readable preview.",
     type: "registry:component",
-    registryDependencies: ["input","label","toggle-group"],
+    registryDependencies: ["input","label","select","toggle-group"],
     files: [{
       path: "registry/default/components/cron-builder.tsx",
       type: "registry:component",

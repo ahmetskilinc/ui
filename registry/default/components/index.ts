@@ -2,6 +2,59 @@ import { type Registry } from "shadcn/schema";
 
 export const components: Registry["items"] = [
   {
+    name: "input",
+    description: "A simple text input styled with the registry design tokens.",
+    type: "registry:ui",
+    files: [
+      {
+        path: "default/components/input.tsx",
+        type: "registry:ui",
+        target: "components/ui/input.tsx",
+      },
+    ],
+    categories: undefined,
+  },
+  {
+    name: "label",
+    description: "A form label primitive styled with the registry design tokens.",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-label"],
+    files: [
+      {
+        path: "default/components/label.tsx",
+        type: "registry:ui",
+        target: "components/ui/label.tsx",
+      },
+    ],
+    categories: undefined,
+  },
+  {
+    name: "select",
+    description: "A simple native select styled with the registry design tokens.",
+    type: "registry:ui",
+    files: [
+      {
+        path: "default/components/select.tsx",
+        type: "registry:ui",
+        target: "components/ui/select.tsx",
+      },
+    ],
+    categories: undefined,
+  },
+  {
+    name: "textarea",
+    description: "A simple textarea styled with the registry design tokens.",
+    type: "registry:ui",
+    files: [
+      {
+        path: "default/components/textarea.tsx",
+        type: "registry:ui",
+        target: "components/ui/textarea.tsx",
+      },
+    ],
+    categories: undefined,
+  },
+  {
     name: "sidebar",
     description: "",
     type: "registry:component",
@@ -119,7 +172,7 @@ export const components: Registry["items"] = [
     description:
       "Visual builder for cron expressions with hourly/daily/weekly/monthly modes, raw expression editing, validation, and human-readable preview.",
     type: "registry:component",
-    registryDependencies: ["input", "label", "toggle-group"],
+    registryDependencies: ["input", "label", "select", "toggle-group"],
     files: [
       {
         path: "default/components/cron-builder.tsx",

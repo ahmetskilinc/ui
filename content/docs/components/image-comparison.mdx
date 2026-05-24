@@ -1,0 +1,83 @@
+---
+title: Image Comparison
+description: A draggable before/after image comparison slider. Horizontal or vertical, hover-to-reveal mode, full keyboard support, and zero dependencies.
+component: true
+---
+
+import ImageComparisonPreview from "@/components/image-comparison-preview";
+
+<ComponentPreviewTabs id="image-comparison" component={<ImageComparisonPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/image-comparison
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/image-comparison
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/image-comparison
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/image-comparison
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageComparison } from "@/components/ui/image-comparison";
+
+export function Demo() {
+  return (
+    <ImageComparison
+      className="aspect-video"
+      showLabels
+      before={<img src="/before.jpg" alt="" className="h-full w-full object-cover" />}
+      after={<img src="/after.jpg" alt="" className="h-full w-full object-cover" />}
+    />
+  );
+}
+```
+
+## Features
+
+- **Slot-based** — pass any React node for `before` and `after` (images, videos, divs).
+- **Pointer + keyboard** — drag with mouse/touch, or tab in and use arrow keys.
+- **Vertical mode** — set `orientation="vertical"`.
+- **Hover to reveal** — set `hoverToReveal` for a no-click reveal.
+- **Controlled or uncontrolled** — both supported.
+- **A11y** — proper `role="slider"` with `aria-valuenow`/`aria-orientation`.
+
+## Props
+
+| Prop             | Type                              | Default        |
+| ---------------- | --------------------------------- | -------------- |
+| `before`         | `ReactNode`                       | Required       |
+| `after`          | `ReactNode`                       | Required       |
+| `defaultValue`   | `number`                          | `50`           |
+| `value`          | `number`                          | `undefined`    |
+| `onValueChange`  | `(value: number) => void`         | `undefined`    |
+| `orientation`    | `"horizontal" \| "vertical"`      | `"horizontal"` |
+| `showHandle`     | `boolean`                         | `true`         |
+| `showLabels`     | `boolean`                         | `false`        |
+| `hoverToReveal`  | `boolean`                         | `false`        |
+
+## Keyboard
+
+- `← / →` (or `↑ / ↓` in vertical) — adjust by 1%
+- `Shift + Arrow` — adjust by 10%
+- `Home` — set to 0%
+- `End` — set to 100%

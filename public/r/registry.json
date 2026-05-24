@@ -1,0 +1,255 @@
+{
+  "name": "ahmetskilinc/ui",
+  "homepage": "https://ui.ahmet.studio",
+  "items": [
+    {
+      "name": "index",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {},
+      "type": "registry:style"
+    },
+    {
+      "name": "dual-sidebar",
+      "title": "Dual Sidebar",
+      "description": "A dual sidebar block",
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip",
+        "use-mobile",
+        "collapsible",
+        "avatar",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/dual-sidebar/page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "registry/default/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/ui/sidebar.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/index.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/index.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/app-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/app-sidebar.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/right-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/right-sidebar.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/header.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/header.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/nav-main.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/nav-main.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/nav-projects.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/nav-projects.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/nav-user.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/nav-user.tsx"
+        },
+        {
+          "path": "registry/default/blocks/dual-sidebar/dual-sidebar/team-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/dual-sidebar/team-switcher.tsx"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sidebar",
+      "description": "",
+      "registryDependencies": [
+        "button",
+        "separator",
+        "sheet",
+        "tooltip",
+        "input",
+        "use-mobile",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/ui/sidebar.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "multiselect-combobox",
+      "description": "",
+      "registryDependencies": [
+        "button",
+        "popover",
+        "command",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/multiselect-combobox.tsx",
+          "type": "registry:component",
+          "target": "components/ui/multiselect-combobox.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "video-player",
+      "description": "A composable custom video player with accessible controls and icon-library-agnostic icons.",
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "registryDependencies": [
+        "button",
+        "slider",
+        "tooltip",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/video-player.tsx",
+          "type": "registry:component",
+          "target": "components/ui/video-player.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "tags-input",
+      "description": "Versatile chip-style tag input with paste-splitting, validation, dedupe, max-tags, and keyboard editing.",
+      "files": [
+        {
+          "path": "registry/default/components/tags-input.tsx",
+          "type": "registry:component",
+          "target": "components/ui/tags-input.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "shortcut-recorder",
+      "description": "Records keyboard shortcuts (modifier+key combos) for hotkey settings UIs. Includes a useKeyboardShortcut hook and a shortcutMatches helper.",
+      "files": [
+        {
+          "path": "registry/default/components/shortcut-recorder.tsx",
+          "type": "registry:component",
+          "target": "components/ui/shortcut-recorder.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "image-comparison",
+      "description": "A draggable before/after image comparison slider with horizontal or vertical orientation, hover-to-reveal, and full keyboard support.",
+      "files": [
+        {
+          "path": "registry/default/components/image-comparison.tsx",
+          "type": "registry:component",
+          "target": "components/ui/image-comparison.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "activity-heatmap",
+      "description": "GitHub-style contribution heatmap. Supports custom date ranges, configurable thresholds, weekday/month labels, legend, and per-cell tooltips.",
+      "files": [
+        {
+          "path": "registry/default/components/activity-heatmap.tsx",
+          "type": "registry:component",
+          "target": "components/ui/activity-heatmap.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "cron-builder",
+      "description": "Visual builder for cron expressions with hourly/daily/weekly/monthly modes, raw expression editing, validation, and human-readable preview.",
+      "registryDependencies": [
+        "input",
+        "label",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/cron-builder.tsx",
+          "type": "registry:component",
+          "target": "components/ui/cron-builder.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "inline-edit",
+      "description": "Click-to-edit text field with optimistic save, escape-to-cancel, validation, async submit support, and multiline mode.",
+      "files": [
+        {
+          "path": "registry/default/components/inline-edit.tsx",
+          "type": "registry:component",
+          "target": "components/ui/inline-edit.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "better-auth-next",
+      "description": "",
+      "dependencies": [
+        "better-auth",
+        "better-sqlite3"
+      ],
+      "files": [
+        {
+          "path": "registry/default/better-auth/auth.ts",
+          "type": "registry:lib",
+          "target": "lib/auth.ts"
+        },
+        {
+          "path": "registry/default/better-auth/auth-client.ts",
+          "type": "registry:lib",
+          "target": "lib/auth-client.ts"
+        },
+        {
+          "path": "registry/default/better-auth/route.ts",
+          "type": "registry:lib",
+          "target": "app/api/auth/[...all]/route.ts"
+        }
+      ],
+      "type": "registry:lib"
+    }
+  ]
+}

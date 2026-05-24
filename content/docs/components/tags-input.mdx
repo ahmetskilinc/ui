@@ -1,0 +1,93 @@
+---
+title: Tags Input
+description: A versatile chip-style input with paste-splitting, dedupe, validation, max-tags, and full keyboard editing — the tags input shadcn doesn't ship.
+component: true
+---
+
+import TagsInputPreview from "@/components/tags-input-preview";
+
+<ComponentPreviewTabs id="tags-input" component={<TagsInputPreview/>} />
+
+## Installation
+
+<CodeTabs>
+  <Tabs defaultValue="npm">
+    <TabsContent value="npm">
+      ```bash
+      npx shadcn@latest add https://ui.ahmet.studio/r/tags-input
+      ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+      ```bash
+      pnpm dlx shadcn@latest add https://ui.ahmet.studio/r/tags-input
+      ```
+    </TabsContent>
+    <TabsContent value="bun">
+      ```bash
+      bunx --bun shadcn@latest add https://ui.ahmet.studio/r/tags-input
+      ```
+    </TabsContent>
+    <TabsContent value="yarn">
+      ```bash
+      yarn shadcn@latest add https://ui.ahmet.studio/r/tags-input
+      ```
+    </TabsContent>
+  </Tabs>
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TagsInput } from "@/components/ui/tags-input";
+
+export function Demo() {
+  const [tags, setTags] = React.useState<string[]>([]);
+
+  return (
+    <TagsInput
+      value={tags}
+      onChange={setTags}
+      placeholder="Add a tag..."
+      maxTags={10}
+      formatTag={(t) => t.toLowerCase().replace(/\s+/g, "-")}
+      validate={(t) =>
+        /^[a-z0-9-]+$/i.test(t) || "Letters, numbers and dashes only"
+      }
+    />
+  );
+}
+```
+
+## Features
+
+- **Paste-aware** — pasting `react, vue; svelte` adds three tags at once.
+- **Dedupe** — duplicates are silently ignored (configurable).
+- **Validation** — return `false` or a string error from `validate`.
+- **Max tags** — disables the input when full.
+- **Backspace edit** — first backspace focuses the last chip; second removes it.
+- **Submit on Enter, comma, or Tab** — fully configurable via `delimiters`.
+- **Format on commit** — normalize values (slugify, lowercase, trim, etc.).
+- **Sizes** — `sm`, `default`, `lg`.
+- **Controlled** — fully controlled `value` / `onChange`.
+
+## Props
+
+| Prop                 | Type                                    | Default               |
+| -------------------- | --------------------------------------- | --------------------- |
+| `value`              | `string[]`                              | Required              |
+| `onChange`           | `(value: string[]) => void`             | Required              |
+| `placeholder`        | `string`                                | `"Add tag..."`        |
+| `delimiters`         | `string[]`                              | `["Enter", ","]`      |
+| `maxTags`            | `number`                                | `undefined`           |
+| `validate`           | `(tag: string) => boolean \| string`    | `undefined`           |
+| `duplicates`         | `"ignore" \| "allow"`                   | `"ignore"`            |
+| `formatTag`          | `(raw: string) => string`               | `undefined`           |
+| `clearable`          | `boolean`                               | `true`                |
+| `pasteSplit`         | `RegExp`                                | `/[\n,;]+/`           |
+| `size`               | `"sm" \| "default" \| "lg"`             | `"default"`           |
+
+## Keyboard
+
+- `Enter` / `,` / `Tab` — commit the current draft as a tag
+- `Backspace` (empty input) — focus the last chip; press again to remove
+- `Esc` — clear focused chip

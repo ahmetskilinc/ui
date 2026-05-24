@@ -89,6 +89,57 @@
       "type": "registry:block"
     },
     {
+      "name": "input",
+      "description": "A simple text input styled with the registry design tokens.",
+      "files": [
+        {
+          "path": "registry/default/components/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "label",
+      "description": "A form label primitive styled with the registry design tokens.",
+      "dependencies": [
+        "@radix-ui/react-label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "select",
+      "description": "A simple native select styled with the registry design tokens.",
+      "files": [
+        {
+          "path": "registry/default/components/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "textarea",
+      "description": "A simple textarea styled with the registry design tokens.",
+      "files": [
+        {
+          "path": "registry/default/components/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "sidebar",
       "description": "",
       "registryDependencies": [
@@ -202,6 +253,7 @@
       "registryDependencies": [
         "input",
         "label",
+        "select",
         "toggle-group"
       ],
       "files": [

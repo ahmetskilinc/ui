@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 
@@ -220,10 +221,6 @@ function isValidField(field: string, min: number, max: number): boolean {
   });
 }
 
-const selectClass = cn(
-  "flex h-9 w-full items-center rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs ring-offset-background outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50",
-);
-
 export function CronBuilder({
   value,
   defaultValue,
@@ -292,9 +289,8 @@ export function CronBuilder({
     <div className={cn("flex w-full flex-col gap-4", className)} {...props}>
       <div className="flex flex-col gap-2">
         <Label htmlFor="cron-mode">Frequency</Label>
-        <select
+        <Select
           id="cron-mode"
-          className={selectClass}
           value={current.mode}
           onChange={(e) => setMode(e.target.value as CronMode)}
         >
@@ -303,7 +299,7 @@ export function CronBuilder({
               {MODE_LABELS[m]}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
 
       {(current.mode === "daily" ||
@@ -312,9 +308,8 @@ export function CronBuilder({
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col gap-2">
             <Label htmlFor="cron-hour">Hour</Label>
-            <select
+            <Select
               id="cron-hour"
-              className={selectClass}
               value={parsed.hour}
               onChange={(e) => updateField("hour", e.target.value)}
             >
@@ -323,13 +318,12 @@ export function CronBuilder({
                   {String(i).padStart(2, "0")}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="cron-minute">Minute</Label>
-            <select
+            <Select
               id="cron-minute"
-              className={selectClass}
               value={parsed.minute}
               onChange={(e) => updateField("minute", e.target.value)}
             >
@@ -338,7 +332,7 @@ export function CronBuilder({
                   {String(m).padStart(2, "0")}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
         </div>
       )}
@@ -346,9 +340,8 @@ export function CronBuilder({
       {current.mode === "hourly" && (
         <div className="flex flex-col gap-2">
           <Label htmlFor="cron-minute-hour">Minute of hour</Label>
-          <select
+          <Select
             id="cron-minute-hour"
-            className={selectClass}
             value={parsed.minute}
             onChange={(e) => updateField("minute", e.target.value)}
           >
@@ -357,7 +350,7 @@ export function CronBuilder({
                 {String(i).padStart(2, "0")}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
 
@@ -389,9 +382,8 @@ export function CronBuilder({
       {current.mode === "monthly" && (
         <div className="flex flex-col gap-2">
           <Label htmlFor="cron-dom">Day of month</Label>
-          <select
+          <Select
             id="cron-dom"
-            className={selectClass}
             value={parsed.dayOfMonth}
             onChange={(e) => updateField("dayOfMonth", e.target.value)}
           >
@@ -400,7 +392,7 @@ export function CronBuilder({
                 {i + 1}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
 

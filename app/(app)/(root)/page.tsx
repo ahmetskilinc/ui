@@ -1,11 +1,13 @@
-import { ComponentsList } from "@/components/components-list";
+import { ComponentsPillList } from "@/components/home/components-pill-list";
+import { Featured } from "@/components/home/featured";
+import { Hero } from "@/components/home/hero";
 
 const Page = () => {
   return (
-    <main className="mx-auto flex max-w-[100rem] flex-1 flex-col gap-8 p-4">
-      <div className="max-w-3xl">
-        <ComponentsList />
-      </div>
+    <main className="flex flex-1 flex-col">
+      <Hero />
+      <Featured />
+      <ComponentsPillList />
     </main>
   );
 };
